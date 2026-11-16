@@ -51,9 +51,12 @@ in the same style everywhere:
 ```
 
 - Authors are written PubMed-style (`Surname Initials`) with the full list.
-- A trailing `*` or `†` marks equal contribution. A footnote ("These authors
-  contributed equally.") is added automatically. To change its wording, add
-  `"notes": { "*": "Co-first authors." }`.
+- Equal contribution is marked by position: a trailing `*` for co-first (or
+  other equally contributing) authors, and `†` for co-senior authors (a group
+  that includes the last author). A rare second non-senior group gets `‡`.
+  Footnotes are added automatically: "\* These authors contributed equally." and
+  "† These authors jointly supervised this work." To change the wording for one
+  paper, add `"notes": { "*": "Co-first authors." }`.
 - On a profile page, that member's name is shown in bold. On the Publications
   page, all current lab members are bold. The name to match is
   `Surname FirstInitial`, e.g. `Varma A`. If someone publishes under a different

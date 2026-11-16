@@ -9,8 +9,9 @@ What it does
   * Gets the full author list, journal, volume/issue/pages, year, DOI, PMID
     and PMC ID for each one.
   * For papers with free full text in PubMed Central, reads the author
-    footnotes and marks equal contributions with * (and †, ‡ for further
-    groups).
+    footnotes and marks equal contributions: * for co-first (or other)
+    authors, † for co-senior authors (a group that includes the last author),
+    ‡ for a rare second non-senior group.
   * Leaves out errata and retraction notices, and preprints that PubMed links
     to a later published version.
 
@@ -30,6 +31,7 @@ import os
 import re
 import sys
 import time
+import unicodedata
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
@@ -193,14 +195,49 @@ def equal_contributions(pmcid):
     return [g for _, g in sorted(groups.items()) if len(g) > 1]
 
 
+def normalize(name):
+    name = unicodedata.normalize("NFKD", name)
+    name = "".join(ch for ch in name if not unicodedata.combining(ch))
+    return re.sub(r"[\s\-‐-―']+", " ", name).strip().lower()
+
+
+def same_surname(pubmed_last, jats_surname):
+    """PubMed and the full text sometimes split names differently
+    (e.g. "Del Bene" vs "Bene"), so allow one to end with the other."""
+    a, b = normalize(pubmed_last), normalize(jats_surname)
+    return a == b or a.endswith(" " + b) or b.endswith(" " + a)
+
+
+def assign_markers(authors, index_groups):
+    """Mark equal-contribution groups by position.
+
+    The group that includes the last author gets † (co-senior authors);
+    other groups get *, then ‡. Groups of fewer than two people are dropped.
+    """
+    groups = [sorted(set(g)) for g in index_groups if len(set(g)) >= 2]
+    last = len(authors) - 1
+    senior = [g for g in groups if last in g]
+    others = sorted((g for g in groups if last not in g), key=lambda g: g[0])
+    plan = list(zip(["*", "‡"], others)) + [("†", g) for g in senior[:1]]
+    for marker, group in plan:
+        for i in group:
+            if authors[i][-1] not in MARKERS:
+                authors[i] = authors[i] + marker
+
+
 def apply_markers(pub, groups):
     authors = pub["authors"]
-    for marker, surnames in zip(MARKERS, groups):
+    index_groups = []
+    for surnames in groups:
+        used, idx = set(), []
         for surname in surnames:
             for i, a in enumerate(authors):
-                if a.rsplit(" ", 1)[0] == surname and a[-1] not in MARKERS:
-                    authors[i] = a + marker
+                if i not in used and same_surname(a.rsplit(" ", 1)[0], surname):
+                    used.add(i)
+                    idx.append(i)
                     break
+        index_groups.append(idx)
+    assign_markers(authors, index_groups)
 
 
 def main():

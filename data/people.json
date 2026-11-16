@@ -6,7 +6,7 @@
         {
           "id": "loren-looger",
           "name": "Loren Looger",
-          "role": "Principal Investigator · HHMI Investigator & Professor of Neurosciences",
+          "role": ["Principal Investigator", "HHMI Investigator", "Professor of Neurosciences"],
           "photo": "assets/img/people/loren-looger.jpg",
           "bio": [
             "Loren received his BS in Chemistry and his MS in Mathematics from Stanford University in 1996 and went on to receive his PhD in Biochemistry from Duke University in 2003. From 2006-2018, he worked as a Group Leader for Howard Hughes Medical Institute (HHMI) at Janelia Research Campus in Ashburn, VA. He continued as a Senior Group Leader from 2018-2021, before he relocated to the University of California, San Diego (UCSD) as an Investigator for HHMI and Professor of Neurosciences at UCSD.",
@@ -14,8 +14,16 @@
           ],
           "links": [
             {
-              "label": "Publications (PubMed)",
-              "url": "https://pubmed.ncbi.nlm.nih.gov/?term=loren%20looger"
+              "label": "Google Scholar",
+              "url": "https://scholar.google.com/citations?user=wgpPMeEAAAAJ"
+            },
+            {
+              "label": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Looger+L%5Bau%5D&sort=date"
+            },
+            {
+              "label": "All publications",
+              "url": "publications.html"
             }
           ]
         }
@@ -108,8 +116,7 @@
               "pmid": "35741778",
               "pmcid": "PMC9222795",
               "notes": {
-                "*": "Co-first authors.",
-                "†": "These authors contributed equally."
+                "*": "Co-first authors."
               }
             },
             {
@@ -436,7 +443,7 @@
         {
           "id": "peter-fenton",
           "name": "Peter Fenton",
-          "role": "PhD Student, Neurosciences Graduate Program",
+          "role": ["PhD Student", "Neurosciences Graduate Program"],
           "photo": "assets/img/people/peter-fenton.jpg",
           "bio": [
             "Peter received his bachelor’s degree in philosophy from the University of California, Santa Cruz in 2007. Over the next decade, Peter pursued his philosophical and scientific interests which eventually led him to the lab of Dr. Eiman Abdel-azim at the Salk Institute for Biological Studies in 2017. Peter was acquainted with Neuroscience in the context of studying spinal cord circuits that governed complex, reaching behaviors in mice.",
@@ -460,7 +467,7 @@
         {
           "id": "sara-zimmerman",
           "name": "Sara Zimmerman",
-          "role": "PhD Student, Neurosciences Graduate Program",
+          "role": ["PhD Student", "Neurosciences Graduate Program"],
           "photo": "assets/img/people/sara-zimmerman.jpg",
           "bio": [
             "Sara received her bachelor’s degrees in chemistry and biology from Duke University in 2020, then completed an NIH postbaccalaureate fellowship in the clinical pharmacology program at the National Cancer Institute. Sara entered the Neuroscience Graduate Program at UCSD in the fall of 2022 and joined the Looger Lab in the fall of 2023. She is studying the cellular and circuit mechanisms of psychedelic-induced plasticity using larval zebrafish as a model system. Through whole-brain calcium imaging and behavioral analysis, she hopes to better understand how acute psychedelic administration can lead to lasting behavioral change. Outside of lab, she loves all things outdoors, especially hiking, biking, and learning to garden."

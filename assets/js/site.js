@@ -144,12 +144,26 @@
       : el("div", { class: cls, role: "img", "aria-label": "No photo" });
   }
 
+  // A role can be one string or a list. On cards each item goes on its own
+  // line; pass a separator (e.g. " · ") to keep them on one line instead.
+  function roleNode(tag, role, separator) {
+    if (!role || (Array.isArray(role) && !role.length)) return null;
+    var lines = Array.isArray(role) ? role : [role];
+    if (separator) return el(tag, { class: "role", text: lines.join(separator) });
+    var children = [];
+    lines.forEach(function (line, i) {
+      if (i > 0) children.push(el("br"));
+      children.push(line);
+    });
+    return el(tag, { class: "role" }, children);
+  }
+
   // Compact card for the People page; links to the member's profile page.
   function personCard(p) {
     var inner = [
       personPhoto(p, "photo"),
       el("h3", { text: p.name }),
-      p.role ? el("div", { class: "role", text: p.role }) : null
+      roleNode("div", p.role)
     ];
     if (p.id) {
       return el("a", { class: "card person person-link", href: "person.html?id=" + encodeURIComponent(p.id) }, inner);
@@ -158,7 +172,7 @@
   }
 
   function alumniItem(p) {
-    var details = [p.role, p.years].filter(Boolean).join(", ");
+    var details = [].concat(p.role || [], p.years || []).join(", ");
     return el("li", null, [
       el("strong", { text: p.name }),
       details ? " — " + details : null,
@@ -222,7 +236,7 @@
         personPhoto(person, "profile-photo"),
         el("div", null, [
           el("h1", { text: person.name }),
-          person.role ? el("p", { class: "role", text: person.role }) : null,
+          roleNode("p", person.role, " · "),
           links.length ? el("p", { class: "links" }, joinWith(links, " · ")) : null
         ])
       ]);
@@ -257,12 +271,18 @@
   //   * These authors contributed equally.
   //
   // In the data, authors are a list like ["Morris J*", "Na YJ*", "Looger LL"].
-  // A trailing * or † marks equal contribution; the footnote text defaults to
-  // "These authors contributed equally." and can be changed per paper with
-  // "notes": { "*": "Co-first authors." }.
+  // A trailing * marks co-first (equally contributing) authors and † marks
+  // co-senior authors; see DEFAULT_NOTES for the footnote texts, which can be
+  // changed per paper with "notes": { "*": "Co-first authors." }.
   // ---------------------------------------------------------------------------
 
   var MARKERS = ["*", "†", "‡"];
+  // * co-first (or other equal) authors, † co-senior authors, ‡ a second non-senior group.
+  var DEFAULT_NOTES = {
+    "*": "These authors contributed equally.",
+    "†": "These authors jointly supervised this work.",
+    "‡": "These authors contributed equally."
+  };
   var MAX_AUTHORS = 20;   // longer author lists are shortened, with a "show all" button
 
   // The name(s) to bold for a person, e.g. "Varma A". Can be set explicitly
@@ -356,7 +376,7 @@
     info.list.forEach(function (a) { if (a.marker && used.indexOf(a.marker) === -1) used.push(a.marker); });
     used.sort(function (x, y) { return MARKERS.indexOf(x) - MARKERS.indexOf(y); });
     var notes = used.map(function (m) {
-      var text = (pub.notes && pub.notes[m]) || "These authors contributed equally.";
+      var text = (pub.notes && pub.notes[m]) || DEFAULT_NOTES[m];
       return el("div", { class: "footnote", text: m + " " + text });
     });
 
