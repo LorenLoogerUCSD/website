@@ -239,7 +239,22 @@ h3 { font-size: 1.1rem; margin: 0 0 6px; }
   border: 1px solid var(--border);
 }
 .profile-body { max-width: 760px; }
-.profile-body .pub-list .meta { color: var(--text); }
+/* Citations (shared by profile pages and the Publications page) */
+.pub-list .ref { line-height: 1.5; }
+.pub-list .authors strong { color: var(--text); font-weight: 700; }
+.pub-list .pub-title { font-weight: 400; }
+.pub-list .links { font-size: 14px; margin-top: 4px; }
+.pub-list .footnote { font-size: 13px; color: var(--muted); margin-top: 2px; }
+.show-authors {
+  font: inherit;
+  font-size: 13px;
+  color: var(--accent);
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+}
 
 /* Research sections */
 .research-figure { margin: 24px 0 8px; }

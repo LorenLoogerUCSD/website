@@ -33,10 +33,37 @@ one to Alumni.
 Photos: put them in `assets/img/people/`, ideally about 800 px on the long side.
 Faces should be near the centre/top, since photos are cropped to a circle.
 
-**Publications** (`data/publications.json`): a list of papers with `title`,
-`authors`, `journal`, `year`, and optionally `doi` (the title then links to the
-paper), `url`, and `links` (PDF, preprint, code...). They are sorted and grouped
-by year automatically, and the page has a filter box.
+**Publications** (`data/publications.json`, and `publications` inside each
+person in `data/people.json`): every reference uses the same fields and is shown
+in the same style everywhere:
+
+```json
+{
+  "authors": ["Morris J*", "Na YJ*", "Zhu H", "Kim J†", "Eberwine J†"],
+  "title": "Paper title",
+  "journal": "Cell Rep",
+  "volume": "21", "issue": "10", "pages": "2706-2713",
+  "year": 2017,
+  "doi": "10.1016/j.celrep.2017.11.031",
+  "pmid": "29212019",
+  "pmcid": "PMC5771502"
+}
+```
+
+- Authors are written PubMed-style (`Surname Initials`) with the full list.
+- A trailing `*` or `†` marks equal contribution. A footnote ("These authors
+  contributed equally.") is added automatically. To change its wording, add
+  `"notes": { "*": "Co-first authors." }`.
+- On a profile page, that member's name is shown in bold. On the Publications
+  page, all current lab members are bold. The name to match is
+  `Surname FirstInitial`, e.g. `Varma A`. If someone publishes under a different
+  name, add `"pubName": "Smith-Jones AB"` to their entry in `people.json`.
+- `doi`, `pmid` and `pmcid` become "doi:…", "PubMed" and "Free full text" links.
+  Optional `links` adds more, e.g. `[{ "label": "Preprint", "url": "…" }]`.
+- Lists of more than 20 authors are shortened, with a "show all" button.
+  The bold member and anyone with `*`/`†` stay visible.
+- On the Publications page, papers are sorted and grouped by year automatically,
+  and there is a filter box.
 
 **Research** (`data/research.json`): `intro` text, a list of `areas`
 (`title`, `description`, optional `image`), and optional `resources`.

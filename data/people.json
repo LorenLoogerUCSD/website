@@ -13,7 +13,10 @@
             "In his lab he uses protein engineering to create tools for studying and manipulating the brain and other biological samples. Looger’s team combines computational and evolutionary methods to create new reagents for use in characterizing and manipulating the assembly and function of neural circuits. The team designs and tests these reagents – and other tools – in collaboration with other scientists. Their projects include creating sensors for calcium, neurotransmitters, and neuromodulators; optogenetic effectors; engineered viral capsids; probes for EM and immunolabeling; and recently, designed proteins and pathways for carbon capture and other environmental remediation. Ultimately, his goal is to enable better science in diverse fields and across the globe through collaboration and innovation."
           ],
           "links": [
-            { "label": "Publications (PubMed)", "url": "https://pubmed.ncbi.nlm.nih.gov/?term=loren%20looger" }
+            {
+              "label": "Publications (PubMed)",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/?term=loren%20looger"
+            }
           ]
         }
       ]
@@ -30,7 +33,17 @@
             "Ryan received his Bachelor’s degree, and Master’s degree, in Microbiology from San Diego State University. As an undergraduate, he studied microbial and bacteriophage interactions and ecology in coral reef ecosystems, and how pollution can affect those interactions. His work on biofilms and their influence on coral larval settlement helped inform current projects aimed at restoring degraded coral reefs. As a graduate student, his studies focused on developing genetic tools to study bacteriophage-host interactions to design effective novel bacteriophage therapies. These studies contributed to two successful therapies and continue to be used today. Ryan joined Looger Lab in June 2024 as a Research Technician."
           ],
           "publications": [
-            { "text": "Bradley JS, Hajama H, Akong K, Jordan M, Stout D, Rowe RS, Conrad DJ, Hingtgen S, Segall AM. Bacteriophage Therapy of Multidrug-resistant Achromobacter in an 11-Year-old Boy With Cystic Fibrosis Assessed by Metagenome Analysis. The Pediatric Infectious Disease Journal 42(9):754-759 (2023).", "url": "https://doi.org/10.1097/INF.0000000000004000" }
+            {
+              "authors": ["Bradley JS", "Hajama H", "Akong K", "Jordan M", "Stout D", "Rowe RS", "Conrad DJ", "Hingtgen S", "Segall AM"],
+              "title": "Bacteriophage Therapy of Multidrug-resistant Achromobacter in an 11-Year-old Boy With Cystic Fibrosis Assessed by Metagenome Analysis",
+              "journal": "Pediatr Infect Dis J",
+              "year": 2023,
+              "volume": "42",
+              "issue": "9",
+              "pages": "754-759",
+              "doi": "10.1097/INF.0000000000004000",
+              "pmid": "37343220"
+            }
           ]
         },
         {
@@ -59,11 +72,70 @@
             "Dr. Jacqueline Morris received her Ph.D. in pharmacology from the University of Pennsylvania where she also performed her postdoctoral research. Dr. Morris is currently a Senior Research Associate in the Department of Neuroscience at the University of California, San Diego under Dr. Loren Looger. She currently focuses on development and implementation of genomics pipelines for various projects including generating an improved genome assembly and annotation of Trachemys scripta elegans, or the red eared slider turtle, in order to better understand how temperature regulates sex determination in this species; generating genome assemblies and annotations for various fungal species to identify underlying genomic variation associated with climate change driven thermotolerance; bacterial genome assembly and annotation of various species for the purposes of protein based sensor generation and to understand the role of the LoaP transcription antiterminator in the regulation of antimicrobial producing operons."
           ],
           "publications": [
-            { "text": "Matsumoto A, Morris J, Looger LL, Yonehara K. Diverse GABA signaling in the inner retina enables spatiotemporal coding. bioRxiv (2024).", "url": "https://doi.org/10.1101/2024.01.09.574952" },
-            { "text": "Kim HB, Lu Y, Oh SC, Morris J, Miyashiro K, Kim J, Eberwine J, Sul JY. Astrocyte ethanol exposure reveals persistent and defined calcium response subtypes and associated gene signatures. J Biol Chem 298(8):102147 (2022).", "url": "https://doi.org/10.1016/j.jbc.2022.102147" },
-            { "text": "Fazel-Najafabadi M, Rallabandi HR, Singh MK, Maiti GP, Morris J, Looger LL, Nath SK. Discovery and Functional Characterization of Two Regulatory Variants Underlying Lupus Susceptibility at 2p13.1. Genes (Basel) 13(6):1016 (2022).", "url": "https://doi.org/10.3390/genes13061016" },
-            { "text": "Kim HB, Morris J, Miyashiro K, Lehto T, Langel Ü, Eberwine J, Sul JY. Astrocytes promote ethanol-induced enhancement of intracellular Ca2+ signals through intercellular communication with neurons. iScience 24(5):102436 (2021).", "url": "https://doi.org/10.1016/j.isci.2021.102436" },
-            { "text": "Morris J, Na YJ, Zhu H, Lee JH, Giang H, Ulyanova AV, et al., Eberwine J. Pervasive within-Mitochondrion Single-Nucleotide Variant Heteroplasmy as Revealed by Single-Mitochondrion Sequencing. Cell Rep 21(10):2706-2713 (2017).", "url": "https://doi.org/10.1016/j.celrep.2017.11.031" }
+            {
+              "authors": ["Matsumoto A", "Morris J", "Looger LL", "Yonehara K"],
+              "title": "Functionally distinct GABAergic amacrine cell types regulate spatiotemporal encoding in the mouse retina",
+              "journal": "Nat Neurosci",
+              "year": 2025,
+              "volume": "28",
+              "issue": "6",
+              "pages": "1256-1267",
+              "doi": "10.1038/s41593-025-01935-0",
+              "pmid": "40234708",
+              "pmcid": "PMC12148929"
+            },
+            {
+              "authors": ["Kim HB*", "Lu Y*", "Oh SC", "Morris J", "Miyashiro K", "Kim J", "Eberwine J", "Sul JY"],
+              "title": "Astrocyte ethanol exposure reveals persistent and defined calcium response subtypes and associated gene signatures",
+              "journal": "J Biol Chem",
+              "year": 2022,
+              "volume": "298",
+              "issue": "8",
+              "pages": "102147",
+              "doi": "10.1016/j.jbc.2022.102147",
+              "pmid": "35716779",
+              "pmcid": "PMC9293641"
+            },
+            {
+              "authors": ["Fazel-Najafabadi M*", "Rallabandi HR*", "Singh MK*", "Maiti GP", "Morris J", "Looger LL†", "Nath SK†"],
+              "title": "Discovery and Functional Characterization of Two Regulatory Variants Underlying Lupus Susceptibility at 2p13.1",
+              "journal": "Genes (Basel)",
+              "year": 2022,
+              "volume": "13",
+              "issue": "6",
+              "pages": "1016",
+              "doi": "10.3390/genes13061016",
+              "pmid": "35741778",
+              "pmcid": "PMC9222795",
+              "notes": {
+                "*": "Co-first authors.",
+                "†": "These authors contributed equally."
+              }
+            },
+            {
+              "authors": ["Kim HB*", "Morris J*", "Miyashiro K", "Lehto T", "Langel Ü", "Eberwine J", "Sul JY"],
+              "title": "Astrocytes promote ethanol-induced enhancement of intracellular Ca2+ signals through intercellular communication with neurons",
+              "journal": "iScience",
+              "year": 2021,
+              "volume": "24",
+              "issue": "5",
+              "pages": "102436",
+              "doi": "10.1016/j.isci.2021.102436",
+              "pmid": "33997707",
+              "pmcid": "PMC8105650"
+            },
+            {
+              "authors": ["Morris J*", "Na YJ*", "Zhu H", "Lee JH", "Giang H", "Ulyanova AV", "Baltuch GH", "Brem S", "Chen HI", "Kung DK", "Lucas TH", "O'Rourke DM", "Wolf JA", "Grady MS", "Sul JY", "Kim J†", "Eberwine J†"],
+              "title": "Pervasive within-Mitochondrion Single-Nucleotide Variant Heteroplasmy as Revealed by Single-Mitochondrion Sequencing",
+              "journal": "Cell Rep",
+              "year": 2017,
+              "volume": "21",
+              "issue": "10",
+              "pages": "2706-2713",
+              "doi": "10.1016/j.celrep.2017.11.031",
+              "pmid": "29212019",
+              "pmcid": "PMC5771502"
+            }
           ]
         },
         {
@@ -76,12 +148,72 @@
             "Dr. Malhotra then joined Prof. Loren Looger at the University of California, San Diego in 2024 as an Asst. Project Scientist to continue her research interest on identifying the novel microbial biosynthetic gene clusters responsible for producing metabolites having antibiotic potential. Microorganisms like bacteria and fungi possess tremendous ability to produce bioactive metabolites. However, there is still an immense potential that remains unexplored as the BGC remains silent/cryptic under normal laboratory conditions. Her research thus focusses on identifying different ways to activate these silent BGCs by employing genetic free and genetics-based methods. This work would help her to identify potential antibiotic candidates as well as to understand the mechanism of BGC activation."
           ],
           "publications": [
-            { "text": "Malhotra N, Oh S, Goodwin M, Markowitz T, Lack J, Finin P, Boshoff H, Barry CE 3rd. Co-cultivation induces elicitation of unique Fungus-derived Natural products that leads to thiol stress mediated killing of Mycobacterium tuberculosis (manuscript in preparation)." },
-            { "text": "Boshoff HI, Malhotra N, Barry CE III, Oh S. The Antitubercular Activities of Natural Products with Fused-Nitrogen-Containing Heterocycles. Pharmaceuticals 17(2):211 (2024).", "url": "https://doi.org/10.3390/ph17020211" },
-            { "text": "Malhotra N, Kumar P, Sethu R, Rohaun SK. Emergence of Multi-drug Resistant Microbes: Bacteria, Fungi, Viruses. Frontiers in Antimicrobial Agents Vol. 2, Bentham Science Publishers (2023)." },
-            { "text": "Malhotra N, Karthikeyan S, Chakraborti PK. Phosphorylation of mycobacterial phosphodiesterase by eukaryotic-type Ser/Thr kinase controls its two distinct and mutually exclusive functionalities. J Biol Chem 292(42):17362-17374 (2017).", "url": "https://doi.org/10.1074/jbc.M117.784124" },
-            { "text": "Malhotra N, Chakraborti PK. Eukaryotic-Type Ser/Thr Protein Kinase Mediated Phosphorylation of Mycobacterial Phosphodiesterase Affects its Localization to the Cell Wall. Front Microbiol 7:123 (2016).", "url": "https://doi.org/10.3389/fmicb.2016.00123" },
-            { "text": "Yadav GS, Ravala SK, Malhotra N, Chakraborti PK. Phosphorylation modulates catalytic activity of mycobacterial sirtuins. Front Microbiol 7:677 (2016).", "url": "https://doi.org/10.3389/fmicb.2016.00677" }
+            {
+              "authors": ["Malhotra N", "Oh S", "Finin P", "Medrano J", "Andrews J", "Goodwin M", "Markowitz TE", "Lack J", "Boshoff HIM", "Barry CE"],
+              "title": "Environmental fungi target thiol homeostasis to compete with Mycobacterium tuberculosis",
+              "journal": "PLoS Biol",
+              "year": 2024,
+              "volume": "22",
+              "issue": "12",
+              "pages": "e3002852",
+              "doi": "10.1371/journal.pbio.3002852",
+              "pmid": "39625876",
+              "pmcid": "PMC11614215"
+            },
+            {
+              "authors": ["Boshoff HI", "Malhotra N", "Barry CE", "Oh S"],
+              "title": "The Antitubercular Activities of Natural Products with Fused-Nitrogen-Containing Heterocycles",
+              "journal": "Pharmaceuticals (Basel)",
+              "year": 2024,
+              "volume": "17",
+              "issue": "2",
+              "pages": "211",
+              "doi": "10.3390/ph17020211",
+              "pmid": "38399426",
+              "pmcid": "PMC10892018"
+            },
+            {
+              "authors": ["Malhotra N", "Kumar P", "Sethu R", "Rohaun SK"],
+              "title": "Emergence of Multidrug Resistance Microbes: Bacteria, Fungi, and Viruses",
+              "journal": "In: Frontiers in Antimicrobial Agents, Vol. 2: Current Trends in the Identification and Development of Antimicrobial Agents. Bentham Science",
+              "year": 2023,
+              "pages": "28-67",
+              "doi": "10.2174/9789815080056123020005"
+            },
+            {
+              "authors": ["Malhotra N", "Karthikeyan S", "Chakraborti PK"],
+              "title": "Phosphorylation of mycobacterial phosphodiesterase by eukaryotic-type Ser/Thr kinase controls its two distinct and mutually exclusive functionalities",
+              "journal": "J Biol Chem",
+              "year": 2017,
+              "volume": "292",
+              "issue": "42",
+              "pages": "17362-17374",
+              "doi": "10.1074/jbc.M117.784124",
+              "pmid": "28855253",
+              "pmcid": "PMC5655513"
+            },
+            {
+              "authors": ["Malhotra N", "Chakraborti PK"],
+              "title": "Eukaryotic-Type Ser/Thr Protein Kinase Mediated Phosphorylation of Mycobacterial Phosphodiesterase Affects its Localization to the Cell Wall",
+              "journal": "Front Microbiol",
+              "year": 2016,
+              "volume": "7",
+              "pages": "123",
+              "doi": "10.3389/fmicb.2016.00123",
+              "pmid": "26904001",
+              "pmcid": "PMC4746578"
+            },
+            {
+              "authors": ["Yadav GS", "Ravala SK", "Malhotra N", "Chakraborti PK"],
+              "title": "Phosphorylation Modulates Catalytic Activity of Mycobacterial Sirtuins",
+              "journal": "Front Microbiol",
+              "year": 2016,
+              "volume": "7",
+              "pages": "677",
+              "doi": "10.3389/fmicb.2016.00677",
+              "pmid": "27242704",
+              "pmcid": "PMC4860497"
+            }
           ]
         },
         {
@@ -95,7 +227,10 @@
             "In 2023, Kallol joined the Looger lab at UCSD as a senior research associate. His research at Looger has been concentrated on ketamine's potential as an antidepressant versus its neurotoxicity; finding new targets for ketamine and its analogs; designing and synthesizing next-generation rapidly acting antidepressant drugs (RAADs); and creating smart chemical and genetic tools to study neuropsychiatric disorders."
           ],
           "links": [
-            { "label": "Google Scholar", "url": "https://scholar.google.com/citations?user=fL2S0eEAAAAJ" }
+            {
+              "label": "Google Scholar",
+              "url": "https://scholar.google.com/citations?user=fL2S0eEAAAAJ"
+            }
           ]
         }
       ]
@@ -112,9 +247,42 @@
             "Dr. Joseph Benetatos received his Ph.D in Neurobiology from The University of Queensland in Brisbane, Australia in 2020. Joey then joined the lab of Prof. Ernest Fraenkel in the Dept. of Biological Engineering at MIT from 2020-2022, working alongside computational biologists to integrate multi-omics into biological discovery. In 2022 Joey joined the Looger lab at UCSD to study psychedelic drugs. Joey’s research asks the question, “can psychedelic drugs covalently modify proteins?”"
           ],
           "publications": [
-            { "text": "Benetatos J, Bennett RE, Evans HT, Ellis SA, Hyman BT, Bodea LG, Götz J. PTEN Activation Contributes to Neuronal and Synaptic Engulfment by Microglia in Tauopathy. Acta Neuropathologica (2020).", "url": "https://pubmed.ncbi.nlm.nih.gov/32236736/" },
-            { "text": "Evans HT, Benetatos J, Roijen M, Bodea LG, Götz J. Decreased synthesis of ribosomal proteins in tauopathy revealed by non-canonical amino acid labelling. EMBO J (2019).", "url": "https://pubmed.ncbi.nlm.nih.gov/31268600/" },
-            { "text": "Cameron LP, Benetatos J, Lewis V, Bonniwell EM, Jaster AM, Moliner R, Castrén E, McCorvy JD, Palner M, Aguilar-Valles A. Beyond the 5-HT2A Receptor: Classic and Nonclassic Targets in Psychedelic Drug Action. J Neurosci (2023).", "url": "https://pubmed.ncbi.nlm.nih.gov/37940583/" }
+            {
+              "authors": ["Cameron LP", "Benetatos J", "Lewis V", "Bonniwell EM", "Jaster AM", "Moliner R", "Castrén E", "McCorvy JD", "Palner M", "Aguilar-Valles A"],
+              "title": "Beyond the 5-HT2A Receptor: Classic and Nonclassic Targets in Psychedelic Drug Action",
+              "journal": "J Neurosci",
+              "year": 2023,
+              "volume": "43",
+              "issue": "45",
+              "pages": "7472-7482",
+              "doi": "10.1523/JNEUROSCI.1384-23.2023",
+              "pmid": "37940583",
+              "pmcid": "PMC10634557"
+            },
+            {
+              "authors": ["Benetatos J", "Bennett RE", "Evans HT", "Ellis SA", "Hyman BT", "Bodea LG", "Götz J"],
+              "title": "PTEN activation contributes to neuronal and synaptic engulfment by microglia in tauopathy",
+              "journal": "Acta Neuropathol",
+              "year": 2020,
+              "volume": "140",
+              "issue": "1",
+              "pages": "7-24",
+              "doi": "10.1007/s00401-020-02151-9",
+              "pmid": "32236736",
+              "pmcid": "PMC7300099"
+            },
+            {
+              "authors": ["Evans HT", "Benetatos J", "van Roijen M", "Bodea LG", "Götz J"],
+              "title": "Decreased synthesis of ribosomal proteins in tauopathy revealed by non-canonical amino acid labelling",
+              "journal": "EMBO J",
+              "year": 2019,
+              "volume": "38",
+              "issue": "13",
+              "pages": "e101174",
+              "doi": "10.15252/embj.2018101174",
+              "pmid": "31268600",
+              "pmcid": "PMC6600635"
+            }
           ]
         },
         {
@@ -126,11 +294,65 @@
             "Dr. Ryo Tamura received his B.S. and M.S in Pharmaceutical Sciences from the University of Tokyo and Ph.D. in Cellular Biology from the University of Georgia. He is currently a postdoctoral scholar in the Department of Neurosciences at UCSD. His main interest is in developing genetic tools and molecular probes to address biological and pathological mechanisms of diseases by integrating computational modeling and biochemical methods."
           ],
           "publications": [
-            { "text": "Tamura R, Kamiyama D. CRISPR-Cas9-mediated knock-in approach to insert the GFP11 tag into the genome of a human cell line. Methods in Molecular Biology (2023)." },
-            { "text": "Murakami K, Tamura R, Ikehara S, Ota H, Ichimiya T, Matsumoto N, Matsubara H, Nishihara S, Ikehara Y, Yamamoto K. Construction of mouse cochlin mutants with different GAG-binding specificities and their use for immunostaining. Biochemical Journal (2023)." },
-            { "text": "Honda T, Kawasaki N, Yanagihara R, Tamura R, Murakami K, Furusawa Y, Ichimiya T, Matsumoto N, Nishihara S, Yamamoto K. Involvement of cochlin binding to N-sulfated heparan sulfate/heparin in the pathophysiology of autosomal dominant late-onset hearing loss (DFNA9). PLOS ONE (2022)." },
-            { "text": "Kamiyama R, Banzai K, Liu P, Marar A, Tamura R, Jiang F, Fitch MA, Xie J, Kamiyama D. Cell-type-specific, multi-color labeling of endogenous proteins with split fluorescent protein tags in Drosophila. PNAS (2021)." },
-            { "text": "Tamura R, Jiang F, Xie J, Kamiyama D. Multiplexed labeling of cellular proteins with split fluorescent protein tags. Communications Biology (2021)." }
+            {
+              "authors": ["Tamura R", "Kamiyama D"],
+              "title": "CRISPR-Cas9-Mediated Knock-In Approach to Insert the GFP11 Tag into the Genome of a Human Cell Line",
+              "journal": "Methods Mol Biol",
+              "year": 2023,
+              "volume": "2564",
+              "pages": "185-201",
+              "doi": "10.1007/978-1-0716-2667-2_8",
+              "pmid": "36107342",
+              "pmcid": "PMC11552087"
+            },
+            {
+              "authors": ["Murakami K", "Tamura R", "Ikehara S", "Ota H", "Ichimiya T", "Matsumoto N", "Matsubara H", "Nishihara S", "Ikehara Y", "Yamamoto K"],
+              "title": "Construction of mouse cochlin mutants with different GAG-binding specificities and their use for immunohistochemistry",
+              "journal": "Biochem J",
+              "year": 2023,
+              "volume": "480",
+              "issue": "1",
+              "pages": "41-56",
+              "doi": "10.1042/BCJ20220339",
+              "pmid": "36511224",
+              "pmcid": "PMC9987951"
+            },
+            {
+              "authors": ["Honda T", "Kawasaki N", "Yanagihara R", "Tamura R", "Murakami K", "Ichimiya T", "Matsumoto N", "Nishihara S", "Yamamoto K"],
+              "title": "Involvement of cochlin binding to sulfated heparan sulfate/heparin in the pathophysiology of autosomal dominant late-onset hearing loss (DFNA9)",
+              "journal": "PLoS One",
+              "year": 2022,
+              "volume": "17",
+              "issue": "7",
+              "pages": "e0268485",
+              "doi": "10.1371/journal.pone.0268485",
+              "pmid": "35901072",
+              "pmcid": "PMC9333281"
+            },
+            {
+              "authors": ["Kamiyama R*", "Banzai K*", "Liu P", "Marar A", "Tamura R", "Jiang F", "Fitch MA", "Xie J", "Kamiyama D"],
+              "title": "Cell-type-specific, multicolor labeling of endogenous proteins with split fluorescent protein tags in Drosophila",
+              "journal": "Proc Natl Acad Sci U S A",
+              "year": 2021,
+              "volume": "118",
+              "issue": "23",
+              "pages": "e2024690118",
+              "doi": "10.1073/pnas.2024690118",
+              "pmid": "34074768",
+              "pmcid": "PMC8201798"
+            },
+            {
+              "authors": ["Tamura R", "Jiang F", "Xie J", "Kamiyama D"],
+              "title": "Multiplexed labeling of cellular proteins with split fluorescent protein tags",
+              "journal": "Commun Biol",
+              "year": 2021,
+              "volume": "4",
+              "issue": "1",
+              "pages": "257",
+              "doi": "10.1038/s42003-021-01780-4",
+              "pmid": "33637968",
+              "pmcid": "PMC7910571"
+            }
           ]
         },
         {
@@ -143,11 +365,67 @@
             "In his free time, he enjoys reading fiction, swimming, playing tennis and watching a lot of TV shows."
           ],
           "publications": [
-            { "text": "Varma A, Udupa S, Sengupta M, Ghosh P, Thirumalai V. A machine-learning tool to identify bistable state from calcium imaging data. bioRxiv (2022).", "url": "https://doi.org/10.1101/2022.11.10.515941" },
-            { "text": "Varma A. Peer Review: Feeling like a ‘real’ scientist. eLife (2022).", "url": "https://doi.org/10.7554/eLife.77719" },
-            { "text": "Kent BA, Holman C, …, Varma A, …, Weissgerber T. Recommendations for empowering early career researchers to improve research culture and practice. PLoS Biology (2022).", "url": "https://doi.org/10.1371/journal.pbio.3001680" },
-            { "text": "Jambor H, Antonietti A, …, Varma A, …, Weissgerber T. Creating clear and informative image-based figures for scientific publications. PLoS Biology (2021).", "url": "https://doi.org/10.1371/journal.pbio.3001161" },
-            { "text": "Narayanan S, Varma A, Thirumalai V. Adaptable internal representations drive cerebellum-mediated predictive control of an innate behavior. bioRxiv (2021).", "url": "https://doi.org/10.1101/2021.04.28.441782" }
+            {
+              "authors": ["Varma A", "Udupa S", "Sengupta M", "Ghosh PK", "Thirumalai V"],
+              "title": "A machine-learning tool to identify bistable states from calcium imaging data",
+              "journal": "J Physiol",
+              "year": 2024,
+              "volume": "602",
+              "issue": "7",
+              "pages": "1243-1271",
+              "doi": "10.1113/JP284373",
+              "pmid": "38482722"
+            },
+            {
+              "authors": ["Narayanan S", "Varma A", "Thirumalai V"],
+              "title": "Predictive neural computations in the cerebellum contribute to motor planning and faster behavioral responses in larval zebrafish",
+              "journal": "Sci Adv",
+              "year": 2024,
+              "volume": "10",
+              "issue": "1",
+              "pages": "eadi6470",
+              "doi": "10.1126/sciadv.adi6470",
+              "pmid": "38170763",
+              "pmcid": "PMC10775999"
+            },
+            {
+              "authors": ["Varma A"],
+              "title": "Feeling like a 'real' scientist",
+              "journal": "eLife",
+              "year": 2022,
+              "volume": "11",
+              "pages": "e77719",
+              "doi": "10.7554/eLife.77719",
+              "pmid": "35174785",
+              "pmcid": "PMC8853654"
+            },
+            {
+              "authors": ["Kent BA", "Holman C", "Amoako E", "Antonietti A", "Azam JM", "Ballhausen H", "Bediako Y", "Belasen AM", "Carneiro CFD", "Chen YC", "Compeer EB", "Connor CAC", "Crüwell S", "Debat H", "Dorris E", "Ebrahimi H", "Erlich JC", "Fernández-Chiappe F", "Fischer F", "Gazda MA", "Glatz T", "Grabitz P", "Heise V", "Kent DG", "Lo H", "McDowell G", "Mehta D", "Neumann WJ", "Neves K", "Patterson M", "Penfold NC", "Piper SK", "Puebla I", "Quashie PK", "Quezada CP", "Riley JL", "Rohmann JL", "Saladi S", "Schwessinger B", "Siegerink B", "Stehlik P", "Tzilivaki A", "Umbers KDL", "Varma A", "Walavalkar K", "de Winde CM", "Zaza C", "Weissgerber TL"],
+              "title": "Recommendations for empowering early career researchers to improve research culture and practice",
+              "journal": "PLoS Biol",
+              "year": 2022,
+              "volume": "20",
+              "issue": "7",
+              "pages": "e3001680",
+              "doi": "10.1371/journal.pbio.3001680",
+              "pmid": "35797414",
+              "pmcid": "PMC9295962"
+            },
+            {
+              "authors": ["Jambor H*", "Antonietti A*", "Alicea B", "Audisio TL", "Auer S", "Bhardwaj V", "Burgess SJ", "Ferling I", "Gazda MA", "Hoeppner LH", "Ilangovan V", "Lo H", "Olson M", "Mohamed SY", "Sarabipour S", "Varma A", "Walavalkar K", "Wissink EM", "Weissgerber TL"],
+              "title": "Creating clear and informative image-based figures for scientific publications",
+              "journal": "PLoS Biol",
+              "year": 2021,
+              "volume": "19",
+              "issue": "3",
+              "pages": "e3001161",
+              "doi": "10.1371/journal.pbio.3001161",
+              "pmid": "33788834",
+              "pmcid": "PMC8041175",
+              "notes": {
+                "*": "These authors share first authorship."
+              }
+            }
           ]
         }
       ]
@@ -165,7 +443,18 @@
             "Now a Looger Lab graduate student in the Neurosciences Graduate Program at UCSD, he is exploring the potential anti-inflammatory properties of psilocybin (the active, psychedelic compound in ‘magic mushrooms’). Working with mice, Peter hopes to identify and characterize the system(s) responsible for the anti-inflammatory action of psilocybin, with particular focus in the central nervous system. Outside of this project, he is broadly interested in the biological basis of neuropsychiatric and autoimmune conditions and glial biology."
           ],
           "publications": [
-            { "text": "Gatto G, Bourane S, Ren X, Di Costanzo S, Fenton PK, Halder P, Seal RP, Goulding MD. A Functional Topographic Map for Spinal Sensorimotor Reflexes. Neuron 109(1):91-104.e5 (2021)." }
+            {
+              "authors": ["Gatto G", "Bourane S", "Ren X", "Di Costanzo S", "Fenton PK", "Halder P", "Seal RP", "Goulding MD"],
+              "title": "A Functional Topographic Map for Spinal Sensorimotor Reflexes",
+              "journal": "Neuron",
+              "year": 2021,
+              "volume": "109",
+              "issue": "1",
+              "pages": "91-104.e5",
+              "doi": "10.1016/j.neuron.2020.10.003",
+              "pmid": "33181065",
+              "pmcid": "PMC7790959"
+            }
           ]
         },
         {
@@ -183,12 +472,30 @@
       "title": "Alumni",
       "alumni": true,
       "members": [
-        { "name": "Andre McCullough", "role": "Lab Manager" },
-        { "name": "Ben Campbell", "role": "Postdoctoral Scholar" },
-        { "name": "Joyce Chan", "role": "Postdoctoral Scholar" },
-        { "name": "Nadim Hossain", "role": "Postdoctoral Scholar" },
-        { "name": "Laura Beebe", "role": "PhD Student" },
-        { "name": "Xavier Zhou", "role": "Lab Assistant" }
+        {
+          "name": "Andre McCullough",
+          "role": "Lab Manager"
+        },
+        {
+          "name": "Ben Campbell",
+          "role": "Postdoctoral Scholar"
+        },
+        {
+          "name": "Joyce Chan",
+          "role": "Postdoctoral Scholar"
+        },
+        {
+          "name": "Nadim Hossain",
+          "role": "Postdoctoral Scholar"
+        },
+        {
+          "name": "Laura Beebe",
+          "role": "PhD Student"
+        },
+        {
+          "name": "Xavier Zhou",
+          "role": "Lab Assistant"
+        }
       ]
     }
   ]

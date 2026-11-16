@@ -1,27 +1,19 @@
 [
   {
+    "authors": ["[Author A*]", "[Author B*]", "Looger LL"],
     "title": "[Paper title]",
-    "authors": "[Author A, Author B, Looger LL]",
     "journal": "[Journal]",
+    "volume": "[Vol]",
+    "issue": "[Issue]",
+    "pages": "[Pages]",
     "year": 2026,
     "doi": "",
-    "url": "",
-    "links": [
-      { "label": "PDF", "url": "#" }
-    ]
+    "pmid": ""
   },
   {
+    "authors": ["[Author A]", "[Author B]", "Looger LL"],
     "title": "[Paper title]",
-    "authors": "[Author A, Author B, Looger LL]",
     "journal": "[Journal]",
-    "year": 2025,
-    "doi": ""
-  },
-  {
-    "title": "[Paper title]",
-    "authors": "[Author A, Author B, Looger LL]",
-    "journal": "[Journal]",
-    "year": 2025,
-    "doi": ""
+    "year": 2025
   }
 ]

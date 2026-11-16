@@ -231,12 +231,10 @@
       paragraphs(person.bio).forEach(function (t) { body.appendChild(el("p", { text: t })); });
 
       if (person.publications && person.publications.length) {
+        var names = pubNames(person);
         body.appendChild(el("h2", { text: "Selected publications" }));
         body.appendChild(el("ul", { class: "pub-list" }, person.publications.map(function (pub) {
-          return el("li", null, [
-            el("div", { class: "meta" }, [pub.text]),
-            pub.url ? el("div", { class: "links" }, [el("a", { href: pub.url, text: "Link" })]) : null
-          ]);
+          return citation(pub, names);
         })));
       }
 
@@ -250,27 +248,135 @@
   // Publications  (data/publications.json)
   // ---------------------------------------------------------------------------
 
-  function pubItem(pub) {
-    var url = pub.url || (pub.doi ? "https://doi.org/" + pub.doi : null);
-    var title = url ? el("a", { href: url, text: pub.title }) : document.createTextNode(pub.title);
+  // ---------------------------------------------------------------------------
+  // Citations: one shared style for every reference on the site.
+  //
+  //   Authors (lab member in bold, * / † = equal contribution). Title.
+  //   Journal Volume(Issue):Pages (Year).
+  //   doi:10.xxxx/yyyy · PubMed · Free full text (PMC)
+  //   * These authors contributed equally.
+  //
+  // In the data, authors are a list like ["Morris J*", "Na YJ*", "Looger LL"].
+  // A trailing * or † marks equal contribution; the footnote text defaults to
+  // "These authors contributed equally." and can be changed per paper with
+  // "notes": { "*": "Co-first authors." }.
+  // ---------------------------------------------------------------------------
 
-    var meta = [pub.authors + ". ", el("em", { text: pub.journal }), " (" + pub.year + ")."];
-    if (pub.doi) meta.push(" doi:" + pub.doi);
+  var MARKERS = ["*", "†", "‡"];
+  var MAX_AUTHORS = 20;   // longer author lists are shortened, with a "show all" button
 
-    var extras = (pub.links || []).map(function (l) {
-      return el("a", { href: l.url, text: l.label });
+  // The name(s) to bold for a person, e.g. "Varma A". Can be set explicitly
+  // with "pubName": "Varma AK" (or a list) in people.json.
+  function pubNames(person) {
+    if (person.pubName) return Array.isArray(person.pubName) ? person.pubName : [person.pubName];
+    var parts = person.name.replace(/^(Dr\.?|Prof\.?)\s+/i, "").trim().split(/\s+/);
+    return [parts[parts.length - 1] + " " + parts[0].charAt(0)];
+  }
+
+  function splitMarker(author) {
+    var last = author.charAt(author.length - 1);
+    return MARKERS.indexOf(last) !== -1
+      ? { name: author.slice(0, -1).trim(), marker: last }
+      : { name: author.trim(), marker: "" };
+  }
+
+  // "Rowe R" matches "Rowe RS" but not "Rowell R".
+  function isHighlighted(name, names) {
+    return (names || []).some(function (n) {
+      return name === n || (name.indexOf(n) === 0 && /^[A-Z]/.test(name.charAt(n.length)));
+    });
+  }
+
+  function authorList(authors) {
+    if (Array.isArray(authors)) return authors;
+    return String(authors || "").split(/\s*,\s*/).filter(Boolean);
+  }
+
+  function authorNodes(authors, names, showAll) {
+    var list = authorList(authors).map(splitMarker);
+    var keep = list.map(function (a, i) {
+      return showAll || list.length <= MAX_AUTHORS || i < 10 || i === list.length - 1 ||
+        a.marker || isHighlighted(a.name, names);
+    });
+
+    var nodes = [];
+    var gap = false;
+    list.forEach(function (a, i) {
+      if (!keep[i]) { gap = true; return; }
+      if (nodes.length) nodes.push(", ");
+      if (gap) { nodes.push("…, "); gap = false; }
+      var label = a.name + (a.marker ? a.marker : "");
+      nodes.push(isHighlighted(a.name, names) ? el("strong", { text: label }) : label);
+    });
+    return { nodes: nodes, total: list.length, shortened: keep.indexOf(false) !== -1, list: list };
+  }
+
+  function citation(pub, names) {
+    var authorsSpan = el("span", { class: "authors" });
+    var info = authorNodes(pub.authors, names, false);
+    info.nodes.forEach(function (n) { authorsSpan.appendChild(typeof n === "string" ? document.createTextNode(n) : n); });
+
+    var toggle = null;
+    if (info.shortened) {
+      toggle = el("button", { type: "button", class: "show-authors", text: "show all " + info.total + " authors" });
+      toggle.addEventListener("click", function () {
+        authorsSpan.textContent = "";
+        authorNodes(pub.authors, names, true).nodes.forEach(function (n) {
+          authorsSpan.appendChild(typeof n === "string" ? document.createTextNode(n) : n);
+        });
+        toggle.remove();
+      });
+    }
+
+    var source = [];
+    if (pub.volume) source.push(" " + pub.volume + (pub.issue ? "(" + pub.issue + ")" : ""));
+    if (pub.pages) source.push((pub.volume ? ":" : " ") + pub.pages);
+    var ref = el("div", { class: "ref" }, [
+      authorsSpan,
+      toggle ? " " : null,
+      toggle,
+      ". ",
+      el("span", { class: "pub-title", text: pub.title.replace(/\.$/, "") + "." }),
+      " ",
+      el("em", { text: pub.journal }),
+      source.join(""),
+      " (" + pub.year + ")."
+    ]);
+
+    var links = [];
+    if (pub.doi) links.push(el("a", { href: "https://doi.org/" + pub.doi, text: "doi:" + pub.doi }));
+    else if (pub.url) links.push(el("a", { href: pub.url, text: "Link" }));
+    if (pub.pmid) links.push(el("a", { href: "https://pubmed.ncbi.nlm.nih.gov/" + pub.pmid + "/", text: "PubMed" }));
+    if (pub.pmcid) links.push(el("a", { href: "https://www.ncbi.nlm.nih.gov/pmc/articles/" + pub.pmcid + "/", text: "Free full text" }));
+    (pub.links || []).forEach(function (l) { links.push(el("a", { href: l.url, text: l.label })); });
+
+    var used = [];
+    info.list.forEach(function (a) { if (a.marker && used.indexOf(a.marker) === -1) used.push(a.marker); });
+    used.sort(function (x, y) { return MARKERS.indexOf(x) - MARKERS.indexOf(y); });
+    var notes = used.map(function (m) {
+      var text = (pub.notes && pub.notes[m]) || "These authors contributed equally.";
+      return el("div", { class: "footnote", text: m + " " + text });
     });
 
     return el("li", null, [
-      el("div", { class: "title" }, [title]),
-      el("div", { class: "meta" }, meta),
-      extras.length ? el("div", { class: "links" }, joinWith(extras, " · ")) : null
-    ]);
+      ref,
+      links.length ? el("div", { class: "links" }, joinWith(links, " · ")) : null
+    ].concat(notes));
   }
 
   function renderPublications(target) {
-    loadJSON("data/publications.json").then(function (pubs) {
-      pubs = pubs.slice().sort(function (a, b) { return b.year - a.year; });
+    Promise.all([
+      loadJSON("data/publications.json"),
+      loadJSON("data/people.json").catch(function () { return { groups: [] }; })
+    ]).then(function (results) {
+      var pubs = results[0].slice().sort(function (a, b) { return b.year - a.year; });
+
+      // Bold every current lab member on the main Publications page.
+      var labNames = [];
+      (results[1].groups || []).forEach(function (g) {
+        if (g.alumni) return;
+        (g.members || []).forEach(function (m) { labNames = labNames.concat(pubNames(m)); });
+      });
 
       var search = el("input", {
         type: "search",
@@ -284,7 +390,7 @@
         var q = search.value.trim().toLowerCase();
         var shown = pubs.filter(function (p) {
           if (!q) return true;
-          return [p.title, p.authors, p.journal, String(p.year)].join(" ").toLowerCase().indexOf(q) !== -1;
+          return [p.title, authorList(p.authors).join(" "), p.journal, String(p.year)].join(" ").toLowerCase().indexOf(q) !== -1;
         });
 
         results.textContent = "";
@@ -302,7 +408,7 @@
             list = el("ul", { class: "pub-list" });
             results.appendChild(list);
           }
-          list.appendChild(pubItem(p));
+          list.appendChild(citation(p, labNames));
         });
       }
 
