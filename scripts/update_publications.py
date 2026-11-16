@@ -214,10 +214,29 @@ def assign_markers(authors, index_groups):
     The group that includes the last author gets † (co-senior authors);
     other groups get *, then ‡. Groups of fewer than two people are dropped.
     """
-    groups = [sorted(set(g)) for g in index_groups if len(set(g)) >= 2]
     last = len(authors) - 1
+    groups = []
+    for g in index_groups:
+        g = sorted(set(g))
+        if len(g) < 2:
+            continue
+        if last in g:
+            # Split off the run of authors that ends with the last author.
+            k = len(g) - 1
+            while k > 0 and g[k - 1] == g[k] - 1:
+                k -= 1
+            head, tail = g[:k], g[k:]
+            if len(tail) >= 2 and (not head or len(head) >= 2):
+                groups += [x for x in (head, tail) if x]   # e.g. co-first + co-senior in one footnote
+                continue
+            # e.g. first and last author "contributed equally": not a senior-only group
+            groups.append(("mixed", g))
+            continue
+        groups.append(g)
+    mixed = [g for t, g in (x for x in groups if isinstance(x, tuple))]
+    groups = [g for g in groups if not isinstance(g, tuple)]
     senior = [g for g in groups if last in g]
-    others = sorted((g for g in groups if last not in g), key=lambda g: g[0])
+    others = sorted((g for g in groups if last not in g) , key=lambda g: g[0]) + mixed
     plan = list(zip(["*", "‡"], others)) + [("†", g) for g in senior[:1]]
     for marker, group in plan:
         for i in group:

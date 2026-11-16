@@ -43,7 +43,7 @@
     "pmcid": "PMC12999171"
   },
   {
-    "authors": ["Lim JX*", "Wei Z*", "Narayan S", "Zhang Y", "Hasseman JP", "Kolb I", "Zheng J", "Sheikhattar A", "Mi X", "Zheng W", "Yang X", "Beriashvili M", "Fleishman G", "Wee CL", "de Zeeuw C", "Yu G", "Babadi B", "Rubinov M", "Looger LL", "Bergles DE", "Fitzgerald JE*", "Ahrens MB*"],
+    "authors": ["Lim JX*", "Wei Z*", "Narayan S", "Zhang Y", "Hasseman JP", "Kolb I", "Zheng J", "Sheikhattar A", "Mi X", "Zheng W", "Yang X", "Beriashvili M", "Fleishman G", "Wee CL", "de Zeeuw C", "Yu G", "Babadi B", "Rubinov M", "Looger LL", "Bergles DE", "Fitzgerald JE†", "Ahrens MB†"],
     "title": "Astrocyte-induced internal state transitions reshape brainwide sensory, integrative, and motor computations",
     "journal": "bioRxiv",
     "year": 2026,
@@ -66,7 +66,7 @@
     "review": true
   },
   {
-    "authors": ["Lim J", "Zhou X", "Pamujula S", "Liaqat R", "Achanta A", "Looger L", "Campbell BC*", "Campbell MM*"],
+    "authors": ["Lim J", "Zhou X", "Pamujula S", "Liaqat R", "Achanta A", "Looger L", "Campbell BC†", "Campbell MM†"],
     "title": "Dynamic redox monitoring in differentiated human neuroblastoma models of Parkinson's disease",
     "journal": "Redox Rep",
     "year": 2025,
@@ -184,7 +184,7 @@
     "pmcid": "PMC11002016"
   },
   {
-    "authors": ["Shimoda Y", "Leite M", "Graham RT", "Marvin JS", "Hasseman J", "Kolb I", "Looger LL", "Magloire V*", "Kullmann DM*"],
+    "authors": ["Shimoda Y", "Leite M", "Graham RT", "Marvin JS", "Hasseman J", "Kolb I", "Looger LL", "Magloire V†", "Kullmann DM†"],
     "title": "Extracellular glutamate and GABA transients at the transition from interictal spiking to seizures",
     "journal": "Brain",
     "year": 2024,
@@ -629,7 +629,7 @@
     "pmcid": "PMC6441074"
   },
   {
-    "authors": ["Lobas MA", "Tao R", "Nagai J", "Kronschläger MT", "Borden PM", "Marvin JS", "Looger LL*", "Khakh BS*"],
+    "authors": ["Lobas MA", "Tao R", "Nagai J", "Kronschläger MT", "Borden PM", "Marvin JS", "Looger LL†", "Khakh BS†"],
     "title": "A genetically encoded single-wavelength sensor for imaging cytosolic and cell surface ATP",
     "journal": "Nat Commun",
     "year": 2019,
@@ -1496,7 +1496,7 @@
     "pmcid": "PMC2967725"
   },
   {
-    "authors": ["Del Bene F", "Wyart C*", "Robles E", "Tran A", "Looger L", "Scott EK", "Isacoff EY", "Baier H"],
+    "authors": ["Del Bene F*", "Wyart C*", "Robles E", "Tran A", "Looger L", "Scott EK", "Isacoff EY", "Baier H"],
     "title": "Filtering of visual information in the tectum by an identified neural circuit",
     "journal": "Science",
     "year": 2010,
