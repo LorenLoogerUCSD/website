@@ -144,11 +144,12 @@
       : el("div", { class: cls, role: "img", "aria-label": "No photo" });
   }
 
-  // A role can be one string or a list. On cards each item goes on its own
-  // line; pass a separator (e.g. " · ") to keep them on one line instead.
+  // A role is text like "PhD Student · Neurosciences Graduate Program" (a list
+  // also works). On cards each part goes on its own line; pass a separator
+  // (e.g. " · ") to keep them on one line instead.
   function roleNode(tag, role, separator) {
     if (!role || (Array.isArray(role) && !role.length)) return null;
-    var lines = Array.isArray(role) ? role : [role];
+    var lines = Array.isArray(role) ? role : String(role).split(/\s+·\s+/);
     if (separator) return el(tag, { class: "role", text: lines.join(separator) });
     var children = [];
     lines.forEach(function (line, i) {
