@@ -16,8 +16,7 @@
   // ---------------------------------------------------------------------------
 
   var SITE = {
-    name: "Looger",
-    nameAccent: "Lab",
+    name: "Looger Lab",
     footer: "© " + new Date().getFullYear() + " Looger Lab · UC San Diego",
     // Set to false (or delete the banner text) when the site launches.
     draftBanner: true,
@@ -111,7 +110,7 @@
 
     var header = el("header", { class: "site-header" }, [
       el("div", { class: "container" }, [
-        el("a", { class: "brand", href: "index.html" }, [SITE.name + " ", el("span", { text: SITE.nameAccent })]),
+        el("a", { class: "brand", href: "index.html", text: SITE.name }),
         el("nav", { class: "site-nav", "aria-label": "Main" }, [toggle, list])
       ])
     ]);
