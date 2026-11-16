@@ -67,7 +67,7 @@
   }
 
   // Pages that should highlight another page's menu item.
-  var NAV_PARENT = { "person.html": "people.html" };
+  var NAV_PARENT = { "person.html": "people.html", "research-area.html": "research.html" };
 
   function currentPage() {
     var file = window.location.pathname.split("/").pop();
@@ -461,19 +461,26 @@
 
       paragraphs(data.intro).forEach(function (t) { target.appendChild(el("p", { class: "lead", text: t })); });
 
-      if (data.image) {
-        target.appendChild(el("figure", { class: "research-figure" }, [
-          el("img", { src: data.image, alt: data.imageAlt || "" }),
-          data.imageCaption ? el("figcaption", { text: data.imageCaption }) : null
-        ]));
-      }
-
-      (data.areas || []).forEach(function (a) {
-        var section = el("section", { class: "research-area" }, [el("h2", { text: a.title })]);
-        if (a.image) section.appendChild(el("img", { class: "area-image", src: a.image, alt: a.imageAlt || a.title, loading: "lazy" }));
-        paragraphs(a.description).forEach(function (t) { section.appendChild(el("p", { text: t })); });
-        target.appendChild(section);
+      // One card per area: image, title, short summary, link to the full page.
+      var cards = (data.areas || []).map(function (a) {
+        var href = a.id ? "research-area.html?id=" + encodeURIComponent(a.id) : null;
+        var summary = a.summary || paragraphs(a.description)[0] || "";
+        var image = a.image
+          ? el("img", { class: "area-card-image", src: a.image, alt: a.imageAlt || "", loading: "lazy" })
+          : el("div", { class: "area-card-image", role: "img", "aria-label": "No image" });
+        var inner = [
+          image,
+          el("div", { class: "area-card-body" }, [
+            el("h2", { text: a.title }),
+            el("p", { text: summary }),
+            href ? el("span", { class: "more", text: "Read more →" }) : null
+          ])
+        ];
+        return href
+          ? el("a", { class: "area-card", href: href }, inner)
+          : el("div", { class: "area-card" }, inner);
       });
+      if (cards.length) target.appendChild(el("div", { class: "area-grid" }, cards));
 
       if (data.resources && data.resources.length) {
         target.appendChild(el("h2", { text: "Tools & resources" }));
@@ -487,100 +494,126 @@
     }).catch(function (err) { showError(target, err); });
   }
 
-  // ---------------------------------------------------------------------------
-  // Gallery  (data/gallery.json) with a simple lightbox
-  // ---------------------------------------------------------------------------
-
-  function renderGallery(target) {
-    loadJSON("data/gallery.json").then(function (images) {
+  // Detail page for one research area  (research-area.html?id=...)
+  function renderResearchArea(target) {
+    var id = new URLSearchParams(window.location.search).get("id");
+    loadJSON("data/research.json").then(function (data) {
+      var area = (data.areas || []).filter(function (a) { return a.id && a.id === id; })[0];
       target.textContent = "";
-      if (!images.length) return;
+      target.appendChild(el("p", { class: "back" }, [el("a", { href: "research.html", text: "← All research" })]));
 
-      var lightbox = buildLightbox(images);
+      if (!area) {
+        target.appendChild(el("h1", { text: "Page not found" }));
+        target.appendChild(el("p", { text: "This research page doesn’t exist. It may have moved." }));
+        return;
+      }
 
-      var tiles = images.map(function (img, i) {
-        var inner = img.src
-          ? el("img", { src: img.thumb || img.src, alt: img.alt || img.caption || "", loading: "lazy" })
-          : el("div", { class: "gallery-empty", text: "Image " + (i + 1) });
-
-        var button = el("button", {
-          type: "button",
-          class: "gallery-item",
-          "aria-label": "Open image: " + (img.caption || img.alt || "image " + (i + 1))
-        }, [inner, img.caption ? el("span", { class: "gallery-caption", text: img.caption }) : null]);
-
-        button.addEventListener("click", function () { lightbox.open(i); });
-        return button;
-      });
-
-      target.appendChild(el("div", { class: "gallery" }, tiles));
+      document.title = area.title + " · Looger Lab";
+      target.appendChild(el("h1", { text: area.title }));
+      if (area.image) {
+        var credit = area.credit
+          ? (area.creditUrl ? el("a", { href: area.creditUrl, text: area.credit }) : document.createTextNode(area.credit))
+          : null;
+        target.appendChild(el("figure", { class: "area-figure" }, [
+          el("img", { src: area.image, alt: area.imageAlt || "" }),
+          credit ? el("figcaption", null, [credit]) : null
+        ]));
+      }
+      var body = el("div", { class: "research-area" });
+      paragraphs(area.description).forEach(function (t) { body.appendChild(el("p", { text: t })); });
+      target.appendChild(body);
     }).catch(function (err) { showError(target, err); });
   }
 
-  function buildLightbox(images) {
-    var index = 0;
-    var lastFocus = null;
+  // ---------------------------------------------------------------------------
+  // Slideshow  (data/slides.json): rotating photos at the top of the home page
+  // ---------------------------------------------------------------------------
 
-    var imgEl = el("img", { class: "lightbox-image", alt: "" });
-    var emptyEl = el("div", { class: "lightbox-empty" });
-    var caption = el("p", { class: "lightbox-caption" });
-    var closeBtn = el("button", { type: "button", class: "lightbox-close", "aria-label": "Close" }, ["×"]);
-    var prevBtn = el("button", { type: "button", class: "lightbox-prev", "aria-label": "Previous image" }, ["‹"]);
-    var nextBtn = el("button", { type: "button", class: "lightbox-next", "aria-label": "Next image" }, ["›"]);
+  var SLIDE_SECONDS = 6;
 
-    var box = el("div", { class: "lightbox", role: "dialog", "aria-modal": "true", "aria-label": "Image viewer", hidden: "" }, [
-      closeBtn, prevBtn,
-      el("figure", null, [imgEl, emptyEl, caption]),
-      nextBtn
-    ]);
-    document.body.appendChild(box);
+  function renderSlideshow(target) {
+    loadJSON("data/slides.json").then(function (slides) {
+      slides = (slides || []).filter(function (s) { return s.src; });
+      target.textContent = "";
+      if (!slides.length) { target.hidden = true; return; }
 
-    function show(i) {
-      index = (i + images.length) % images.length;
-      var img = images[index];
-      if (img.src) {
-        imgEl.src = img.src;
-        imgEl.alt = img.alt || img.caption || "";
-        imgEl.hidden = false;
-        emptyEl.hidden = true;
-      } else {
-        imgEl.removeAttribute("src");
-        imgEl.hidden = true;
-        emptyEl.hidden = false;
-        emptyEl.textContent = "Image " + (index + 1);
+      var index = 0;
+      var timer = null;
+      var paused = false;
+      var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      var slideEls = slides.map(function (s, i) {
+        var credit = s.credit
+          ? (s.creditUrl ? el("a", { class: "slide-credit", href: s.creditUrl, text: s.credit }) : el("span", { class: "slide-credit", text: s.credit }))
+          : null;
+        return el("figure", {
+          class: "slide" + (i === 0 ? " active" : ""),
+          role: "group",
+          "aria-roledescription": "slide",
+          "aria-label": (i + 1) + " of " + slides.length,
+          "aria-hidden": i === 0 ? "false" : "true"
+        }, [
+          el("img", { src: s.src, alt: s.alt || s.caption || "", loading: i === 0 ? "eager" : "lazy" }),
+          (s.caption || credit) ? el("figcaption", null, [
+            s.caption ? el("span", { class: "slide-caption", text: s.caption }) : null,
+            credit
+          ]) : null
+        ]);
+      });
+
+      var dots = slides.map(function (s, i) {
+        var dot = el("button", {
+          type: "button",
+          class: "slide-dot" + (i === 0 ? " active" : ""),
+          "aria-label": "Show slide " + (i + 1)
+        });
+        dot.addEventListener("click", function () { show(i); restart(); });
+        return dot;
+      });
+
+      var prev = el("button", { type: "button", class: "slide-nav slide-prev", "aria-label": "Previous slide" }, ["‹"]);
+      var next = el("button", { type: "button", class: "slide-nav slide-next", "aria-label": "Next slide" }, ["›"]);
+      prev.addEventListener("click", function () { show(index - 1); restart(); });
+      next.addEventListener("click", function () { show(index + 1); restart(); });
+
+      var multi = slides.length > 1;
+      var box = el("div", { class: "slideshow", role: "region", "aria-roledescription": "carousel", "aria-label": "Photos" },
+        slideEls.concat(multi ? [prev, next, el("div", { class: "slide-dots" }, dots)] : []));
+      target.appendChild(box);
+
+      function show(i) {
+        slideEls[index].classList.remove("active");
+        slideEls[index].setAttribute("aria-hidden", "true");
+        dots[index].classList.remove("active");
+        index = (i + slides.length) % slides.length;
+        slideEls[index].classList.add("active");
+        slideEls[index].setAttribute("aria-hidden", "false");
+        dots[index].classList.add("active");
       }
-      caption.textContent = img.caption || "";
-      var multi = images.length > 1;
-      prevBtn.hidden = !multi;
-      nextBtn.hidden = !multi;
-    }
 
-    function open(i) {
-      lastFocus = document.activeElement;
-      show(i);
-      box.hidden = false;
-      document.body.classList.add("no-scroll");
-      closeBtn.focus();
-    }
+      function restart() {
+        clearInterval(timer);
+        if (multi && !paused && !reduceMotion) {
+          timer = setInterval(function () { show(index + 1); }, SLIDE_SECONDS * 1000);
+        }
+      }
 
-    function close() {
-      box.hidden = true;
-      document.body.classList.remove("no-scroll");
-      if (lastFocus) lastFocus.focus();
-    }
+      // Pause while the pointer or keyboard focus is on the slideshow.
+      box.addEventListener("mouseenter", function () { paused = true; restart(); });
+      box.addEventListener("mouseleave", function () { paused = false; restart(); });
+      box.addEventListener("focusin", function () { paused = true; restart(); });
+      box.addEventListener("focusout", function () { paused = false; restart(); });
+      box.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowLeft") { show(index - 1); }
+        else if (e.key === "ArrowRight") { show(index + 1); }
+      });
+      document.addEventListener("visibilitychange", function () {
+        paused = document.hidden;
+        restart();
+      });
 
-    closeBtn.addEventListener("click", close);
-    prevBtn.addEventListener("click", function () { show(index - 1); });
-    nextBtn.addEventListener("click", function () { show(index + 1); });
-    box.addEventListener("click", function (e) { if (e.target === box) close(); });
-    document.addEventListener("keydown", function (e) {
-      if (box.hidden) return;
-      if (e.key === "Escape") close();
-      else if (e.key === "ArrowLeft") show(index - 1);
-      else if (e.key === "ArrowRight") show(index + 1);
-    });
-
-    return { open: open };
+      restart();
+    }).catch(function (err) { showError(target, err); });
   }
 
   // ---------------------------------------------------------------------------
@@ -592,7 +625,8 @@
     person: renderPerson,
     publications: renderPublications,
     research: renderResearch,
-    gallery: renderGallery
+    "research-area": renderResearchArea,
+    slideshow: renderSlideshow
   };
 
   function init() {

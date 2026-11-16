@@ -1,0 +1,37 @@
+[
+  {
+    "src": "assets/img/slides/calico-cat.jpg",
+    "alt": "A calico cat in Assisi, Italy",
+    "caption": "A calico cat in Assisi, Italy",
+    "credit": "Photo: Terragio67, CC BY-SA 4.0, via Wikimedia Commons",
+    "creditUrl": "https://commons.wikimedia.org/wiki/File:Calico_cat,_-_Assisi,_Italy.jpg"
+  },
+  {
+    "src": "assets/img/slides/hummingbird.jpg",
+    "alt": "Anna’s hummingbird",
+    "caption": "Anna’s hummingbird",
+    "credit": "Photo: Rhododendrites, CC BY-SA 4.0, via Wikimedia Commons",
+    "creditUrl": "https://commons.wikimedia.org/wiki/File:Anna%27s_hummingbird_(41124).jpg"
+  },
+  {
+    "src": "assets/img/slides/turtle.jpg",
+    "alt": "Balkan pond turtle",
+    "caption": "Balkan pond turtle",
+    "credit": "Photo: Charles J. Sharp, CC BY-SA 4.0, via Wikimedia Commons",
+    "creditUrl": "https://commons.wikimedia.org/wiki/File:Balkan_pond_turtle_(Mauremys_rivulata)_Butrint.jpg"
+  },
+  {
+    "src": "assets/img/slides/squid.jpg",
+    "alt": "Bigfin reef squid",
+    "caption": "Bigfin reef squid",
+    "credit": "Photo: Rhododendrites, CC BY-SA 4.0, via Wikimedia Commons",
+    "creditUrl": "https://commons.wikimedia.org/wiki/File:Bigfin_reef_squid_(11760).jpg"
+  },
+  {
+    "src": "assets/img/slides/cat-lizard.jpg",
+    "alt": "A cat playing with a lizard",
+    "caption": "A cat playing with a lizard",
+    "credit": "Photo: Basile Morin, CC BY-SA 4.0, via Wikimedia Commons",
+    "creditUrl": "https://commons.wikimedia.org/wiki/File:Cat_playing_with_a_lizard.jpg"
+  }
+]

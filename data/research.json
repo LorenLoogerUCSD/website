@@ -1,19 +1,39 @@
 {
-  "intro": [
-    "We use protein engineering to create tools for studying and manipulating the brain and other biological systems. Combining computational and evolutionary methods, we develop sensors for calcium, neurotransmitters and neuromodulators, optogenetic effectors, engineered viral capsids, and probes for EM and immunolabeling, and we test them together with collaborators. More recently we have also been designing proteins and pathways for carbon capture and environmental remediation."
-  ],
-  "image": "assets/img/research/research-1.jpg",
-  "imageAlt": "Fluorescence microscopy image of neurons, shown in false color",
   "areas": [
     {
+      "id": "sensors",
+      "title": "Genetically encoded sensors",
+      "summary": "We are best known for fluorescent protein sensors that light up when they detect calcium, neurotransmitters, metabolites or drugs, including the GCaMP calcium indicators and the iGluSnFR family, which are now used by neuroscientists around the world.",
+      "image": "assets/img/research/research-1.jpg",
+      "imageAlt": "Fluorescence microscopy image of neurons, shown in false color",
+      "description": [
+        "Genetically encoded sensors are engineered proteins that change their fluorescence when they bind a target molecule. Because cells make them from DNA, they can be targeted to specific cell types and subcellular compartments and imaged in living cells, tissues and animals over time, revealing when and where signals happen.",
+        "Much of our work, carried out together with the GENIE Project at HHMI’s Janelia Research Campus, has focused on calcium indicators as a readout of neural activity. Starting from crystal structures of GCaMP that explained how its fluorescence changes, we helped develop successive generations of GCaMP sensors, from GCaMP3 through GCaMP6, jGCaMP7 and the fast jGCaMP8 indicators, along with red calcium indicators and variants tuned for the endoplasmic reticulum and other high-calcium organelles.",
+        "We have also built the “SnFR” family of sensors for neurotransmitters, starting from bacterial binding proteins: iGluSnFR for glutamate and its faster, better-localized successors; iGABASnFR and iGABASnFR2 for GABA; and a serotonin sensor developed by machine-learning-guided directed evolution. Related sensors report ATP, glucose and polyamines, and a series of drug sensors reveal how nicotine, ketamine, methadone and smoking-cessation drugs enter cells and accumulate in compartments such as the endoplasmic reticulum.",
+        "Our approach combines structure-guided and computational design with directed evolution and high-throughput screening in cultured neurons. We test new sensors with collaborators in worms, flies, fish and mice, and share them widely with the research community."
+      ]
+    },
+    {
+      "id": "psychedelic-neuroplasticity",
       "title": "Psychedelic-induced neuroplasticity",
+      "summary": "How can a single dose of a psychedelic change behavior for months? Using brain-wide imaging in transparent larval zebrafish, we look for the neural and molecular mechanisms behind psychedelics’ lasting effects.",
+      "image": "assets/img/research/zebrafish.jpg",
+      "imageAlt": "Zebrafish embryo inside its egg, seen under a microscope",
+      "credit": "Photo: UCL Culture, CC BY 4.0, via Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Zebrafish,_Benjamin_Lemaire.jpg",
       "description": [
         "Psychedelic-assisted psychotherapy has shown therapeutic promise for a number of neuropsychiatric conditions. For example, in patients with treatment-resistant depression, a single dose of adjunct psilocybin with ongoing psychotherapy can decrease symptoms in patients for many months to years. Psychedelics, like psilocybin, induce acute neuroplasticity, however the mechanisms underlying persistent effects remain unknown.",
         "With a brain-wide approach, we are systematically investigating the neural and molecular mechanisms underlying the persistent effects of psychedelics using the larval zebrafish as a model organism. Larval zebrafish are small and optically transparent, allowing for brain-wide imaging of neural activity at single-cell resolution. We use multiple levels of analysis from behavior to calcium-imaging to whole mount in situ labeling to characterize persistent drug-induced swimming behaviors, then ask what mechanisms are driving persistent functional effects."
       ]
     },
     {
+      "id": "psychedelics-inflammation",
       "title": "Psychedelics and inflammation",
+      "summary": "Do psychedelics act on the immune system as well as the brain? In mice, we map how psilocybin changes inflammation in specific brain regions and cell types, and use clickable psychedelics to track which proteins these drugs bind.",
+      "image": "assets/img/research/mouse.jpg",
+      "imageAlt": "A laboratory mouse on a gloved hand",
+      "credit": "Photo: Rama, CC BY-SA 2.0 fr, via Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Lab_mouse_mg_3263.jpg",
       "description": [
         "The clinical, recreational, and research interest in psychedelic compounds has increased exponentially in recent years. So too has the scope of investigation into how these compounds interact with biological systems. Hallucinogens, like psilocybin, have been used for centuries across cultures, often involved in ‘healing’ ceremonies. Beyond encouraging states of acceptance and psychological well-being, we are investigating whether these compounds may improve clinical outcomes by acting as immunomodulatory agents interfacing directly with immune subsystems.",
         "Using mice as a model of an intact, mammalian nervous system, we are investigating the anti-inflammatory properties of psilocybin. Using a combination of in situ hybridization and single-cell sequencing, we aim to measure region- and cell-type-specific changes in inflammation-related mRNA in response to psilocybin.",
@@ -21,7 +41,13 @@
       ]
     },
     {
+      "id": "cephalopods-climate",
       "title": "Cephalopods and climate change",
+      "summary": "Squids, cuttlefish and octopuses are thriving as the oceans change. We study how warming and acidification affect squid behavior, and build viral gene-delivery tools to uncover the biology behind their resilience.",
+      "image": "assets/img/research/squid.jpg",
+      "imageAlt": "A bigfin reef squid",
+      "credit": "Photo: Rhododendrites, CC BY-SA 4.0, via Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Bigfin_reef_squid_(11760).jpg",
       "description": [
         "While many species are experiencing population declines, coleoid cephalopods (squids, cuttlefish, and octopuses) have shown remarkable resilience over the past five decades, thriving despite global environmental stressors. This suggests they have adapted favorably to anthropogenic climate change.",
         "Our research seeks to understand how this occurs by studying how environmental factors like ocean warming and acidification affect critical survival behaviors, such as prey capture, in squids—both individually and in combination. To link these population-level observations with physiological and molecular mechanisms, we are developing recombinant virus-based gene delivery tools for cephalopods. These tools will allow for genetic perturbations and the selective labeling of cellular populations with fluorescent reporters, offering new ways to explore the underlying biology.",

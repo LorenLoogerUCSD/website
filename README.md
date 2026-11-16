@@ -10,8 +10,8 @@ https://lorenloogerucsd.github.io/website/
 | `index.html`, `research.html`, `people.html`, `publications.html`, `contact.html` | The pages |
 | `assets/js/site.js` | Shared header, navigation and footer; renders the data files into pages |
 | `assets/css/style.css` | Shared styles |
-| `data/*.json` | Content for People, Publications, Research and the home-page gallery |
-| `assets/img/` | Images (suggested: `people/`, `gallery/`, `research/`) |
+| `data/*.json` | Content for People, Publications, Research and the home-page slideshow |
+| `assets/img/` | Images (`people/`, `slides/`, `research/`) |
 
 ## Editing content
 
@@ -82,17 +82,30 @@ and `hidden` are kept, and an entry with `"locked": true` is not touched at all.
 Hand-added entries without a PMID are kept too. To hide a paper, add
 `"hidden": true` to it.
 
-**Research** (`data/research.json`): `intro` text, a list of `areas`
-(`title`, `description`, optional `image`), and optional `resources`.
+**Research** (`data/research.json`): a list of `areas`. The Research page shows
+one card per area (image, title, `summary`, "Read more"). Each card links to
+its own page at `research-area.html?id=<id>`, which shows the image (with
+`credit`), and the full `description` (a list of paragraphs). Fields: `id`
+(lowercase-with-dashes, unique), `title`, `summary` (1–2 sentences), `image`,
+`imageAlt`, `credit`, `creditUrl`, `description`. Optional `resources` adds a
+"Tools & resources" list. The zebrafish, mouse and squid photos are
+placeholders from Wikimedia Commons, so keep their credits while they're used.
 
-**Gallery** (`data/gallery.json`): a list of images with `src`, `caption` and
-`alt` (a short description for screen readers). Optional `thumb` is a smaller
-version shown in the grid. Keep images under about 500 KB each (about 1600 px wide).
+**Home-page slideshow** (`data/slides.json`): a list of slides, each with `src`,
+`alt` (a short description for screen readers), and optional `caption`,
+`credit` and `creditUrl`. Slides change every 6 seconds (`SLIDE_SECONDS` in
+`assets/js/site.js`) and pause while the mouse is over them. Use wide photos,
+about 1600 px across and under about 400 KB, in `assets/img/slides/`. They're
+cropped to a 21:9 banner on desktop and 4:3 on phones, so keep the subject near
+the centre. The current cat, hummingbird, turtle and squid photos are
+placeholders from Wikimedia Commons. Their licenses (CC BY-SA) require the
+credit line, so keep `credit` while they're used.
 
 **Navigation, footer, draft banner**: edit the `SITE` settings at the top of
 `assets/js/site.js`.
 
-The home-page hero and news, and the Contact page, are plain HTML in their pages.
+The home-page introduction and news, and the Contact page, are plain HTML in
+their pages.
 
 ## Preview locally
 
