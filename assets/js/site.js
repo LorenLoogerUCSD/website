@@ -66,9 +66,19 @@
     target.appendChild(el("p", { class: "placeholder", text: "Could not load this section. (" + err.message + ")" }));
   }
 
+  // Pages that should highlight another page's menu item.
+  var NAV_PARENT = { "person.html": "people.html" };
+
   function currentPage() {
     var file = window.location.pathname.split("/").pop();
-    return file === "" ? "index.html" : file;
+    if (file === "") file = "index.html";
+    return NAV_PARENT[file] || file;
+  }
+
+  // Bio text may be one string or a list of paragraphs.
+  function paragraphs(text) {
+    if (!text) return [];
+    return Array.isArray(text) ? text : [text];
   }
 
   // ---------------------------------------------------------------------------
@@ -128,23 +138,31 @@
   // People  (data/people.json)
   // ---------------------------------------------------------------------------
 
+  function personPhoto(p, cls) {
+    return p.photo
+      ? el("img", { class: cls, src: p.photo, alt: p.name, loading: "lazy" })
+      : el("div", { class: cls, role: "img", "aria-label": "No photo" });
+  }
+
+  // Compact card for the People page; links to the member's profile page.
   function personCard(p) {
-    var photo = p.photo
-      ? el("img", { class: "photo", src: p.photo, alt: p.name, loading: "lazy" })
-      : el("div", { class: "photo", role: "img", "aria-label": "No photo" });
-
-    var links = (p.links || []).map(function (l) {
-      return el("a", { href: l.url, text: l.label });
-    });
-
-    return el("div", { class: "card person" }, [
-      photo,
+    var inner = [
+      personPhoto(p, "photo"),
       el("h3", { text: p.name }),
-      p.role ? el("div", { class: "role", text: p.role }) : null,
-      p.bio ? el("p", { text: p.bio }) : null,
-      p.now ? el("p", { class: "now", text: p.now }) : null,
-      p.email ? el("p", null, [el("a", { href: "mailto:" + p.email, text: p.email })]) : null,
-      links.length ? el("p", { class: "links" }, joinWith(links, " · ")) : null
+      p.role ? el("div", { class: "role", text: p.role }) : null
+    ];
+    if (p.id) {
+      return el("a", { class: "card person person-link", href: "person.html?id=" + encodeURIComponent(p.id) }, inner);
+    }
+    return el("div", { class: "card person" }, inner);
+  }
+
+  function alumniItem(p) {
+    var details = [p.role, p.years].filter(Boolean).join(", ");
+    return el("li", null, [
+      el("strong", { text: p.name }),
+      details ? " — " + details : null,
+      p.now ? el("span", { class: "now", text: " · Now: " + p.now }) : null
     ]);
   }
 
@@ -163,8 +181,68 @@
       (data.groups || []).forEach(function (group) {
         if (!group.members || !group.members.length) return;
         target.appendChild(el("h2", { text: group.title }));
-        target.appendChild(el("div", { class: "grid" }, group.members.map(personCard)));
+        if (group.alumni) {
+          target.appendChild(el("ul", { class: "alumni-list" }, group.members.map(alumniItem)));
+        } else {
+          target.appendChild(el("div", { class: "grid people-grid" }, group.members.map(personCard)));
+        }
       });
+    }).catch(function (err) { showError(target, err); });
+  }
+
+  // ---------------------------------------------------------------------------
+  // Individual profile page  (person.html?id=...)
+  // ---------------------------------------------------------------------------
+
+  function renderPerson(target) {
+    var id = new URLSearchParams(window.location.search).get("id");
+
+    loadJSON("data/people.json").then(function (data) {
+      var person = null;
+      (data.groups || []).forEach(function (g) {
+        (g.members || []).forEach(function (m) { if (m.id && m.id === id) person = m; });
+      });
+
+      target.textContent = "";
+      var back = el("p", { class: "back" }, [el("a", { href: "people.html", text: "← All people" })]);
+
+      if (!person) {
+        target.appendChild(back);
+        target.appendChild(el("h1", { text: "Person not found" }));
+        target.appendChild(el("p", { text: "This profile doesn’t exist. It may have moved." }));
+        return;
+      }
+
+      document.title = person.name + " · Looger Lab";
+
+      var links = (person.links || []).map(function (l) { return el("a", { href: l.url, text: l.label }); });
+      if (person.email) links.unshift(el("a", { href: "mailto:" + person.email, text: person.email }));
+
+      var header = el("div", { class: "profile-header" }, [
+        personPhoto(person, "profile-photo"),
+        el("div", null, [
+          el("h1", { text: person.name }),
+          person.role ? el("p", { class: "role", text: person.role }) : null,
+          links.length ? el("p", { class: "links" }, joinWith(links, " · ")) : null
+        ])
+      ]);
+
+      var body = el("div", { class: "profile-body" });
+      paragraphs(person.bio).forEach(function (t) { body.appendChild(el("p", { text: t })); });
+
+      if (person.publications && person.publications.length) {
+        body.appendChild(el("h2", { text: "Selected publications" }));
+        body.appendChild(el("ul", { class: "pub-list" }, person.publications.map(function (pub) {
+          return el("li", null, [
+            el("div", { class: "meta" }, [pub.text]),
+            pub.url ? el("div", { class: "links" }, [el("a", { href: pub.url, text: "Link" })]) : null
+          ]);
+        })));
+      }
+
+      target.appendChild(back);
+      target.appendChild(header);
+      target.appendChild(body);
     }).catch(function (err) { showError(target, err); });
   }
 
@@ -244,16 +322,21 @@
     loadJSON("data/research.json").then(function (data) {
       target.textContent = "";
 
-      if (data.intro) target.appendChild(el("p", { class: "lead", text: data.intro }));
+      paragraphs(data.intro).forEach(function (t) { target.appendChild(el("p", { class: "lead", text: t })); });
 
-      var areas = (data.areas || []).map(function (a) {
-        return el("div", { class: "card area" }, [
-          a.image ? el("img", { class: "area-image", src: a.image, alt: a.title, loading: "lazy" }) : null,
-          el("h3", { text: a.title }),
-          el("p", { text: a.description })
-        ]);
+      if (data.image) {
+        target.appendChild(el("figure", { class: "research-figure" }, [
+          el("img", { src: data.image, alt: data.imageAlt || "" }),
+          data.imageCaption ? el("figcaption", { text: data.imageCaption }) : null
+        ]));
+      }
+
+      (data.areas || []).forEach(function (a) {
+        var section = el("section", { class: "research-area" }, [el("h2", { text: a.title })]);
+        if (a.image) section.appendChild(el("img", { class: "area-image", src: a.image, alt: a.imageAlt || a.title, loading: "lazy" }));
+        paragraphs(a.description).forEach(function (t) { section.appendChild(el("p", { text: t })); });
+        target.appendChild(section);
       });
-      if (areas.length) target.appendChild(el("div", { class: "grid" }, areas));
 
       if (data.resources && data.resources.length) {
         target.appendChild(el("h2", { text: "Tools & resources" }));
@@ -369,6 +452,7 @@
 
   var renderers = {
     people: renderPeople,
+    person: renderPerson,
     publications: renderPublications,
     research: renderResearch,
     gallery: renderGallery

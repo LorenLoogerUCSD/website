@@ -19,10 +19,19 @@ Most updates only need a data file. JSON is strict: use double quotes, put comma
 between items, and no comma after the last item. If a section shows
 "Could not load this section", the JSON file usually has a typo.
 
-**People** (`data/people.json`): members are grouped (PI, Lab members, Alumni).
-Each person can have `name`, `role`, `photo`, `bio`, `email`, `now` (for alumni),
-and `links` (a list of `{ "label": ..., "url": ... }`). Empty groups are hidden.
-Photos: square, about 400x400 px, e.g. `"photo": "assets/img/people/jane-doe.jpg"`.
+**People** (`data/people.json`): members are grouped (PI, Staff, Postdocs, PhD
+Students, Alumni). The People page shows a compact card (photo, name, role) for
+each current member; clicking it opens their profile at `person.html?id=<id>`.
+Each current member has `id` (lowercase-with-dashes, must be unique), `name`,
+`role`, `photo`, `bio` (a list of paragraphs), and optionally `email`, `links`
+(a list of `{ "label": ..., "url": ... }`) and `publications`
+(a list of `{ "text": ..., "url": ... }`).
+The Alumni group (`"alumni": true`) is a simple list: `name`, `role`, and
+optionally `years` and `now` (current position). Empty groups are hidden.
+To move someone to alumni, delete their entry from their group and add a short
+one to Alumni.
+Photos: put them in `assets/img/people/`, ideally about 800 px on the long side.
+Faces should be near the centre/top, since photos are cropped to a circle.
 
 **Publications** (`data/publications.json`): a list of papers with `title`,
 `authors`, `journal`, `year`, and optionally `doi` (the title then links to the

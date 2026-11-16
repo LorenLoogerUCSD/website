@@ -200,6 +200,54 @@ h3 { font-size: 1.1rem; margin: 0 0 6px; }
   padding: 24px 0;
 }
 
+/* People grid & profile pages */
+.people-grid { grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); }
+.person-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.person-link:hover { border-color: var(--accent); transform: translateY(-2px); }
+.person-link:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.person .photo { object-position: center 25%; }
+.person h3 { margin-top: 4px; }
+
+.alumni-list { padding-left: 20px; }
+.alumni-list li { margin-bottom: 6px; }
+.alumni-list .now { color: var(--muted); }
+
+.back { margin: 0 0 20px; font-size: 15px; }
+.back a { text-decoration: none; }
+.profile-header {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  margin-bottom: 28px;
+}
+.profile-header h1 { margin-bottom: 4px; }
+.profile-header .role { color: var(--accent); font-weight: 600; margin: 0 0 6px; }
+.profile-header .links { margin: 0; font-size: 15px; }
+.profile-photo {
+  width: 180px;
+  height: 180px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 25%;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+}
+.profile-body { max-width: 760px; }
+.profile-body .pub-list .meta { color: var(--text); }
+
+/* Research sections */
+.research-figure { margin: 24px 0 8px; }
+.research-figure img { border-radius: var(--radius); width: 100%; max-width: 360px; }
+.research-figure figcaption { color: var(--muted); font-size: 14px; margin-top: 6px; }
+.research-area { max-width: 760px; }
+.research-area .area-image { aspect-ratio: auto; max-height: 360px; margin: 8px 0 16px; }
+
 /* Small extras used by data-driven sections */
 .loading { color: var(--muted); }
 .person .now { font-style: italic; margin-top: 4px; }
@@ -367,6 +415,11 @@ body.no-scroll { overflow: hidden; }
   .site-header { position: sticky; }
 
   .gallery { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .people-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .people-grid .card { padding: 14px 10px; }
+  .people-grid .photo { width: 96px; height: 96px; }
+  .profile-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .profile-photo { width: 140px; height: 140px; }
   .lightbox-prev, .lightbox-next { position: absolute; bottom: 24px; }
   .lightbox-prev { left: calc(50% - 56px); margin: 0; }
   .lightbox-next { right: calc(50% - 56px); margin: 0; }

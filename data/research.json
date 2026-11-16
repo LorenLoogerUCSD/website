@@ -1,27 +1,33 @@
 {
-  "intro": "[Overview paragraph describing the lab's research program.]",
+  "intro": [
+    "We use protein engineering to create tools for studying and manipulating the brain and other biological systems. Combining computational and evolutionary methods, we develop sensors for calcium, neurotransmitters and neuromodulators, optogenetic effectors, engineered viral capsids, and probes for EM and immunolabeling, and we test them together with collaborators. More recently we have also been designing proteins and pathways for carbon capture and environmental remediation."
+  ],
+  "image": "assets/img/research/research-1.jpg",
+  "imageAlt": "Fluorescence microscopy image of neurons, shown in false color",
   "areas": [
     {
-      "title": "[Research area 1]",
-      "description": "[Short description of this area.]",
-      "image": ""
+      "title": "Psychedelic-induced neuroplasticity",
+      "description": [
+        "Psychedelic-assisted psychotherapy has shown therapeutic promise for a number of neuropsychiatric conditions. For example, in patients with treatment-resistant depression, a single dose of adjunct psilocybin with ongoing psychotherapy can decrease symptoms in patients for many months to years. Psychedelics, like psilocybin, induce acute neuroplasticity, however the mechanisms underlying persistent effects remain unknown.",
+        "With a brain-wide approach, we are systematically investigating the neural and molecular mechanisms underlying the persistent effects of psychedelics using the larval zebrafish as a model organism. Larval zebrafish are small and optically transparent, allowing for brain-wide imaging of neural activity at single-cell resolution. We use multiple levels of analysis from behavior to calcium-imaging to whole mount in situ labeling to characterize persistent drug-induced swimming behaviors, then ask what mechanisms are driving persistent functional effects."
+      ]
     },
     {
-      "title": "[Research area 2]",
-      "description": "[Short description of this area.]",
-      "image": ""
+      "title": "Psychedelics and inflammation",
+      "description": [
+        "The clinical, recreational, and research interest in psychedelic compounds has increased exponentially in recent years. So too has the scope of investigation into how these compounds interact with biological systems. Hallucinogens, like psilocybin, have been used for centuries across cultures, often involved in ‘healing’ ceremonies. Beyond encouraging states of acceptance and psychological well-being, we are investigating whether these compounds may improve clinical outcomes by acting as immunomodulatory agents interfacing directly with immune subsystems.",
+        "Using mice as a model of an intact, mammalian nervous system, we are investigating the anti-inflammatory properties of psilocybin. Using a combination of in situ hybridization and single-cell sequencing, we aim to measure region- and cell-type-specific changes in inflammation-related mRNA in response to psilocybin.",
+        "Beyond receptor agonism, we are also asking what else psychedelics do inside cells. Using click-chemistry-compatible psychedelics, we can track where these drugs go and which proteins they interact with. This work has led to new insights into the cellular and molecular mechanisms in which psychedelic drugs are involved."
+      ]
     },
     {
-      "title": "[Research area 3]",
-      "description": "[Short description of this area.]",
-      "image": ""
+      "title": "Cephalopods and climate change",
+      "description": [
+        "While many species are experiencing population declines, coleoid cephalopods (squids, cuttlefish, and octopuses) have shown remarkable resilience over the past five decades, thriving despite global environmental stressors. This suggests they have adapted favorably to anthropogenic climate change.",
+        "Our research seeks to understand how this occurs by studying how environmental factors like ocean warming and acidification affect critical survival behaviors, such as prey capture, in squids—both individually and in combination. To link these population-level observations with physiological and molecular mechanisms, we are developing recombinant virus-based gene delivery tools for cephalopods. These tools will allow for genetic perturbations and the selective labeling of cellular populations with fluorescent reporters, offering new ways to explore the underlying biology.",
+        "While cephalopods are a central focus of our work, we also study other model systems to uncover broader patterns of species resilience. By developing new tools and methodologies, we aim to make these systems more accessible for in-depth research, ultimately revealing the neural and behavioral plasticity that drives survival in a rapidly changing world."
+      ]
     }
   ],
-  "resources": [
-    {
-      "title": "[Resource, e.g. plasmids on Addgene]",
-      "url": "",
-      "description": "[What it is.]"
-    }
-  ]
+  "resources": []
 }

@@ -4,48 +4,191 @@
       "title": "Principal Investigator",
       "members": [
         {
+          "id": "loren-looger",
           "name": "Loren Looger",
-          "role": "Principal Investigator",
-          "photo": "",
-          "bio": "[Short bio.]",
-          "email": "",
+          "role": "Principal Investigator · HHMI Investigator & Professor of Neurosciences",
+          "photo": "assets/img/people/loren-looger.jpg",
+          "bio": [
+            "Loren received his BS in Chemistry and his MS in Mathematics from Stanford University in 1996 and went on to receive his PhD in Biochemistry from Duke University in 2003. From 2006-2018, he worked as a Group Leader for Howard Hughes Medical Institute (HHMI) at Janelia Research Campus in Ashburn, VA. He continued as a Senior Group Leader from 2018-2021, before he relocated to the University of California, San Diego (UCSD) as an Investigator for HHMI and Professor of Neurosciences at UCSD.",
+            "In his lab he uses protein engineering to create tools for studying and manipulating the brain and other biological samples. Looger’s team combines computational and evolutionary methods to create new reagents for use in characterizing and manipulating the assembly and function of neural circuits. The team designs and tests these reagents – and other tools – in collaboration with other scientists. Their projects include creating sensors for calcium, neurotransmitters, and neuromodulators; optogenetic effectors; engineered viral capsids; probes for EM and immunolabeling; and recently, designed proteins and pathways for carbon capture and other environmental remediation. Ultimately, his goal is to enable better science in diverse fields and across the globe through collaboration and innovation."
+          ],
           "links": [
-            { "label": "Google Scholar", "url": "#" }
+            { "label": "Publications (PubMed)", "url": "https://pubmed.ncbi.nlm.nih.gov/?term=loren%20looger" }
           ]
         }
       ]
     },
     {
-      "title": "Lab members",
+      "title": "Staff",
       "members": [
         {
-          "name": "[Name]",
-          "role": "[Role, e.g. Postdoctoral Fellow]",
-          "photo": "",
-          "bio": "[One-line research interest.]"
+          "id": "ryan-rowe",
+          "name": "Ryan Rowe",
+          "role": "Lab Manager",
+          "photo": "assets/img/people/ryan-rowe.jpg",
+          "bio": [
+            "Ryan received his Bachelor’s degree, and Master’s degree, in Microbiology from San Diego State University. As an undergraduate, he studied microbial and bacteriophage interactions and ecology in coral reef ecosystems, and how pollution can affect those interactions. His work on biofilms and their influence on coral larval settlement helped inform current projects aimed at restoring degraded coral reefs. As a graduate student, his studies focused on developing genetic tools to study bacteriophage-host interactions to design effective novel bacteriophage therapies. These studies contributed to two successful therapies and continue to be used today. Ryan joined Looger Lab in June 2024 as a Research Technician."
+          ],
+          "publications": [
+            { "text": "Bradley JS, Hajama H, Akong K, Jordan M, Stout D, Rowe RS, Conrad DJ, Hingtgen S, Segall AM. Bacteriophage Therapy of Multidrug-resistant Achromobacter in an 11-Year-old Boy With Cystic Fibrosis Assessed by Metagenome Analysis. The Pediatric Infectious Disease Journal 42(9):754-759 (2023).", "url": "https://doi.org/10.1097/INF.0000000000004000" }
+          ]
         },
         {
-          "name": "[Name]",
-          "role": "[Role, e.g. Graduate Student]",
-          "photo": "",
-          "bio": "[One-line research interest.]"
+          "id": "courtney-millican",
+          "name": "Courtney Millican",
+          "role": "Administrative Assistant",
+          "photo": "assets/img/people/courtney-millican.jpg",
+          "email": "comillican@health.ucsd.edu",
+          "bio": [
+            "Courtney was born and raised in San Diego. She studied Nutrition and Kinesiology at San Diego Mesa College and received her BS in Public Health from San Diego State University. Most of her administrative background comes from the automotive industry. She spent some time working in a wet lab at Labcorp as a clinical laboratory accessioner. She went on to work in the manufacturing department at Thermo Fisher Scientific. She joined Looger Lab in February of 2022, where she provides administrative support."
+          ]
         },
         {
-          "name": "[Name]",
-          "role": "[Role, e.g. Research Associate]",
-          "photo": "",
-          "bio": "[One-line research interest.]"
+          "id": "nina-bozhanova",
+          "name": "Nina Bozhanova",
+          "role": "Bioinformatics Specialist",
+          "photo": "assets/img/people/nina-bozhanova.jpg",
+          "bio": []
+        },
+        {
+          "id": "jacqueline-morris",
+          "name": "Jacqueline Morris",
+          "role": "Bioinformatics Specialist",
+          "photo": "assets/img/people/jacqueline-morris.jpg",
+          "bio": [
+            "Dr. Jacqueline Morris received her Ph.D. in pharmacology from the University of Pennsylvania where she also performed her postdoctoral research. Dr. Morris is currently a Senior Research Associate in the Department of Neuroscience at the University of California, San Diego under Dr. Loren Looger. She currently focuses on development and implementation of genomics pipelines for various projects including generating an improved genome assembly and annotation of Trachemys scripta elegans, or the red eared slider turtle, in order to better understand how temperature regulates sex determination in this species; generating genome assemblies and annotations for various fungal species to identify underlying genomic variation associated with climate change driven thermotolerance; bacterial genome assembly and annotation of various species for the purposes of protein based sensor generation and to understand the role of the LoaP transcription antiterminator in the regulation of antimicrobial producing operons."
+          ],
+          "publications": [
+            { "text": "Matsumoto A, Morris J, Looger LL, Yonehara K. Diverse GABA signaling in the inner retina enables spatiotemporal coding. bioRxiv (2024).", "url": "https://doi.org/10.1101/2024.01.09.574952" },
+            { "text": "Kim HB, Lu Y, Oh SC, Morris J, Miyashiro K, Kim J, Eberwine J, Sul JY. Astrocyte ethanol exposure reveals persistent and defined calcium response subtypes and associated gene signatures. J Biol Chem 298(8):102147 (2022).", "url": "https://doi.org/10.1016/j.jbc.2022.102147" },
+            { "text": "Fazel-Najafabadi M, Rallabandi HR, Singh MK, Maiti GP, Morris J, Looger LL, Nath SK. Discovery and Functional Characterization of Two Regulatory Variants Underlying Lupus Susceptibility at 2p13.1. Genes (Basel) 13(6):1016 (2022).", "url": "https://doi.org/10.3390/genes13061016" },
+            { "text": "Kim HB, Morris J, Miyashiro K, Lehto T, Langel Ü, Eberwine J, Sul JY. Astrocytes promote ethanol-induced enhancement of intracellular Ca2+ signals through intercellular communication with neurons. iScience 24(5):102436 (2021).", "url": "https://doi.org/10.1016/j.isci.2021.102436" },
+            { "text": "Morris J, Na YJ, Zhu H, Lee JH, Giang H, Ulyanova AV, et al., Eberwine J. Pervasive within-Mitochondrion Single-Nucleotide Variant Heteroplasmy as Revealed by Single-Mitochondrion Sequencing. Cell Rep 21(10):2706-2713 (2017).", "url": "https://doi.org/10.1016/j.celrep.2017.11.031" }
+          ]
+        },
+        {
+          "id": "neha-malhotra",
+          "name": "Neha Malhotra",
+          "role": "Assistant Project Scientist",
+          "photo": "assets/img/people/neha-malhotra.jpg",
+          "bio": [
+            "Dr. Neha Malhotra received her Ph.D in Molecular Biology and Biochemistry from the CSIR-Institute of Microbial Technology, India in the year 2017, where she studied Eukaryotic-type Ser/Thr Kinase mediated phosphorylation of cyclic-AMP regulating enzymes in Mycobacterium tuberculosis. Dr. Malhotra then joined the National Institutes of Health in 2018 for her Post-doctoral research with Dr. Clifton Earl Barry 3rd to identify cryptic natural products derived from environmental fungi having antibiotic potential against M. tuberculosis. During her post-doctoral work, she identified some interesting fungus derived natural products specifically produced upon co-cultivation mediated elicitation of cryptic/silent biosynthetic gene clusters having anti-tuberculosis activity.",
+            "Dr. Malhotra then joined Prof. Loren Looger at the University of California, San Diego in 2024 as an Asst. Project Scientist to continue her research interest on identifying the novel microbial biosynthetic gene clusters responsible for producing metabolites having antibiotic potential. Microorganisms like bacteria and fungi possess tremendous ability to produce bioactive metabolites. However, there is still an immense potential that remains unexplored as the BGC remains silent/cryptic under normal laboratory conditions. Her research thus focusses on identifying different ways to activate these silent BGCs by employing genetic free and genetics-based methods. This work would help her to identify potential antibiotic candidates as well as to understand the mechanism of BGC activation."
+          ],
+          "publications": [
+            { "text": "Malhotra N, Oh S, Goodwin M, Markowitz T, Lack J, Finin P, Boshoff H, Barry CE 3rd. Co-cultivation induces elicitation of unique Fungus-derived Natural products that leads to thiol stress mediated killing of Mycobacterium tuberculosis (manuscript in preparation)." },
+            { "text": "Boshoff HI, Malhotra N, Barry CE III, Oh S. The Antitubercular Activities of Natural Products with Fused-Nitrogen-Containing Heterocycles. Pharmaceuticals 17(2):211 (2024).", "url": "https://doi.org/10.3390/ph17020211" },
+            { "text": "Malhotra N, Kumar P, Sethu R, Rohaun SK. Emergence of Multi-drug Resistant Microbes: Bacteria, Fungi, Viruses. Frontiers in Antimicrobial Agents Vol. 2, Bentham Science Publishers (2023)." },
+            { "text": "Malhotra N, Karthikeyan S, Chakraborti PK. Phosphorylation of mycobacterial phosphodiesterase by eukaryotic-type Ser/Thr kinase controls its two distinct and mutually exclusive functionalities. J Biol Chem 292(42):17362-17374 (2017).", "url": "https://doi.org/10.1074/jbc.M117.784124" },
+            { "text": "Malhotra N, Chakraborti PK. Eukaryotic-Type Ser/Thr Protein Kinase Mediated Phosphorylation of Mycobacterial Phosphodiesterase Affects its Localization to the Cell Wall. Front Microbiol 7:123 (2016).", "url": "https://doi.org/10.3389/fmicb.2016.00123" },
+            { "text": "Yadav GS, Ravala SK, Malhotra N, Chakraborti PK. Phosphorylation modulates catalytic activity of mycobacterial sirtuins. Front Microbiol 7:677 (2016).", "url": "https://doi.org/10.3389/fmicb.2016.00677" }
+          ]
+        },
+        {
+          "id": "kallol-bera",
+          "name": "Kallol Bera",
+          "role": "Staff Research Scientist",
+          "photo": "assets/img/people/kallol-bera.jpg",
+          "bio": [
+            "Kallol received his B. Sc. and M. Sc. in chemistry from University of Calcutta, India. He received his Ph.D. in organic chemistry from the Saha Institute of Nuclear Physics (SINP), India in 2016. During his training with Prof. Sudipta Maiti's group at the Tata Institute of Fundamental Research (TIFR), India, he developed a method for quantifying and visualizing some of the key neurotransmitters including serotonin and dopamine.",
+            "Kallol joined the Lester lab, Caltech as a postdoctoral fellow in October 2017. His work in the Lester lab focused on unraveling the mechanisms underlying the rapid antidepressant effects of the drug ketamine. He developed a family of genetically encoded biosensors that can dynamically reveal the presence of ketamine and its metabolites at the sub-cellular level.",
+            "In 2023, Kallol joined the Looger lab at UCSD as a senior research associate. His research at Looger has been concentrated on ketamine's potential as an antidepressant versus its neurotoxicity; finding new targets for ketamine and its analogs; designing and synthesizing next-generation rapidly acting antidepressant drugs (RAADs); and creating smart chemical and genetic tools to study neuropsychiatric disorders."
+          ],
+          "links": [
+            { "label": "Google Scholar", "url": "https://scholar.google.com/citations?user=fL2S0eEAAAAJ" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Postdocs",
+      "members": [
+        {
+          "id": "joseph-benetatos",
+          "name": "Joseph Benetatos",
+          "role": "Postdoctoral Scholar",
+          "photo": "assets/img/people/joseph-benetatos.jpg",
+          "bio": [
+            "Dr. Joseph Benetatos received his Ph.D in Neurobiology from The University of Queensland in Brisbane, Australia in 2020. Joey then joined the lab of Prof. Ernest Fraenkel in the Dept. of Biological Engineering at MIT from 2020-2022, working alongside computational biologists to integrate multi-omics into biological discovery. In 2022 Joey joined the Looger lab at UCSD to study psychedelic drugs. Joey’s research asks the question, “can psychedelic drugs covalently modify proteins?”"
+          ],
+          "publications": [
+            { "text": "Benetatos J, Bennett RE, Evans HT, Ellis SA, Hyman BT, Bodea LG, Götz J. PTEN Activation Contributes to Neuronal and Synaptic Engulfment by Microglia in Tauopathy. Acta Neuropathologica (2020).", "url": "https://pubmed.ncbi.nlm.nih.gov/32236736/" },
+            { "text": "Evans HT, Benetatos J, Roijen M, Bodea LG, Götz J. Decreased synthesis of ribosomal proteins in tauopathy revealed by non-canonical amino acid labelling. EMBO J (2019).", "url": "https://pubmed.ncbi.nlm.nih.gov/31268600/" },
+            { "text": "Cameron LP, Benetatos J, Lewis V, Bonniwell EM, Jaster AM, Moliner R, Castrén E, McCorvy JD, Palner M, Aguilar-Valles A. Beyond the 5-HT2A Receptor: Classic and Nonclassic Targets in Psychedelic Drug Action. J Neurosci (2023).", "url": "https://pubmed.ncbi.nlm.nih.gov/37940583/" }
+          ]
+        },
+        {
+          "id": "ryo-tamura",
+          "name": "Ryo Tamura",
+          "role": "Postdoctoral Scholar",
+          "photo": "assets/img/people/ryo-tamura.jpg",
+          "bio": [
+            "Dr. Ryo Tamura received his B.S. and M.S in Pharmaceutical Sciences from the University of Tokyo and Ph.D. in Cellular Biology from the University of Georgia. He is currently a postdoctoral scholar in the Department of Neurosciences at UCSD. His main interest is in developing genetic tools and molecular probes to address biological and pathological mechanisms of diseases by integrating computational modeling and biochemical methods."
+          ],
+          "publications": [
+            { "text": "Tamura R, Kamiyama D. CRISPR-Cas9-mediated knock-in approach to insert the GFP11 tag into the genome of a human cell line. Methods in Molecular Biology (2023)." },
+            { "text": "Murakami K, Tamura R, Ikehara S, Ota H, Ichimiya T, Matsumoto N, Matsubara H, Nishihara S, Ikehara Y, Yamamoto K. Construction of mouse cochlin mutants with different GAG-binding specificities and their use for immunostaining. Biochemical Journal (2023)." },
+            { "text": "Honda T, Kawasaki N, Yanagihara R, Tamura R, Murakami K, Furusawa Y, Ichimiya T, Matsumoto N, Nishihara S, Yamamoto K. Involvement of cochlin binding to N-sulfated heparan sulfate/heparin in the pathophysiology of autosomal dominant late-onset hearing loss (DFNA9). PLOS ONE (2022)." },
+            { "text": "Kamiyama R, Banzai K, Liu P, Marar A, Tamura R, Jiang F, Fitch MA, Xie J, Kamiyama D. Cell-type-specific, multi-color labeling of endogenous proteins with split fluorescent protein tags in Drosophila. PNAS (2021)." },
+            { "text": "Tamura R, Jiang F, Xie J, Kamiyama D. Multiplexed labeling of cellular proteins with split fluorescent protein tags. Communications Biology (2021)." }
+          ]
+        },
+        {
+          "id": "aalok-varma",
+          "name": "Aalok Varma",
+          "role": "Postdoctoral Scholar",
+          "photo": "assets/img/people/aalok-varma.jpg",
+          "bio": [
+            "Dr. Aalok Varma obtained his bachelor’s degree in biotechnology from Manipal University, Manipal, India and received his PhD from the National Centre for Biological Sciences (NCBS-TIFR), Bangalore, India. For his graduate research, he explored what bistability in individual Purkinje neurons means for the ensemble of neurons in the cerebellum, using larval zebrafish as the model system. As a post-doctoral fellow in the Looger lab, he is broadly interested in understanding how life is impacted by and adapting to climate change. For this, he is working on different experimental systems spanning the domains of life (fungi and animals). Besides academic research, Dr. Varma tries to advocate for systemic change in academia to make it more transparent and equitable. He was a member of eLife’s Early Career Advisory Group (ECAG) from 2021-23.",
+            "In his free time, he enjoys reading fiction, swimming, playing tennis and watching a lot of TV shows."
+          ],
+          "publications": [
+            { "text": "Varma A, Udupa S, Sengupta M, Ghosh P, Thirumalai V. A machine-learning tool to identify bistable state from calcium imaging data. bioRxiv (2022).", "url": "https://doi.org/10.1101/2022.11.10.515941" },
+            { "text": "Varma A. Peer Review: Feeling like a ‘real’ scientist. eLife (2022).", "url": "https://doi.org/10.7554/eLife.77719" },
+            { "text": "Kent BA, Holman C, …, Varma A, …, Weissgerber T. Recommendations for empowering early career researchers to improve research culture and practice. PLoS Biology (2022).", "url": "https://doi.org/10.1371/journal.pbio.3001680" },
+            { "text": "Jambor H, Antonietti A, …, Varma A, …, Weissgerber T. Creating clear and informative image-based figures for scientific publications. PLoS Biology (2021).", "url": "https://doi.org/10.1371/journal.pbio.3001161" },
+            { "text": "Narayanan S, Varma A, Thirumalai V. Adaptable internal representations drive cerebellum-mediated predictive control of an innate behavior. bioRxiv (2021).", "url": "https://doi.org/10.1101/2021.04.28.441782" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "PhD Students",
+      "members": [
+        {
+          "id": "peter-fenton",
+          "name": "Peter Fenton",
+          "role": "PhD Student, Neurosciences Graduate Program",
+          "photo": "assets/img/people/peter-fenton.jpg",
+          "bio": [
+            "Peter received his bachelor’s degree in philosophy from the University of California, Santa Cruz in 2007. Over the next decade, Peter pursued his philosophical and scientific interests which eventually led him to the lab of Dr. Eiman Abdel-azim at the Salk Institute for Biological Studies in 2017. Peter was acquainted with Neuroscience in the context of studying spinal cord circuits that governed complex, reaching behaviors in mice.",
+            "Now a Looger Lab graduate student in the Neurosciences Graduate Program at UCSD, he is exploring the potential anti-inflammatory properties of psilocybin (the active, psychedelic compound in ‘magic mushrooms’). Working with mice, Peter hopes to identify and characterize the system(s) responsible for the anti-inflammatory action of psilocybin, with particular focus in the central nervous system. Outside of this project, he is broadly interested in the biological basis of neuropsychiatric and autoimmune conditions and glial biology."
+          ],
+          "publications": [
+            { "text": "Gatto G, Bourane S, Ren X, Di Costanzo S, Fenton PK, Halder P, Seal RP, Goulding MD. A Functional Topographic Map for Spinal Sensorimotor Reflexes. Neuron 109(1):91-104.e5 (2021)." }
+          ]
+        },
+        {
+          "id": "sara-zimmerman",
+          "name": "Sara Zimmerman",
+          "role": "PhD Student, Neurosciences Graduate Program",
+          "photo": "assets/img/people/sara-zimmerman.jpg",
+          "bio": [
+            "Sara received her bachelor’s degrees in chemistry and biology from Duke University in 2020, then completed an NIH postbaccalaureate fellowship in the clinical pharmacology program at the National Cancer Institute. Sara entered the Neuroscience Graduate Program at UCSD in the fall of 2022 and joined the Looger Lab in the fall of 2023. She is studying the cellular and circuit mechanisms of psychedelic-induced plasticity using larval zebrafish as a model system. Through whole-brain calcium imaging and behavioral analysis, she hopes to better understand how acute psychedelic administration can lead to lasting behavioral change. Outside of lab, she loves all things outdoors, especially hiking, biking, and learning to garden."
+          ]
         }
       ]
     },
     {
       "title": "Alumni",
+      "alumni": true,
       "members": [
-        {
-          "name": "[Name]",
-          "role": "[Former role, years]",
-          "now": "[Current position]"
-        }
+        { "name": "Andre McCullough", "role": "Lab Manager" },
+        { "name": "Ben Campbell", "role": "Postdoctoral Scholar" },
+        { "name": "Joyce Chan", "role": "Postdoctoral Scholar" },
+        { "name": "Nadim Hossain", "role": "Postdoctoral Scholar" },
+        { "name": "Laura Beebe", "role": "PhD Student" },
+        { "name": "Xavier Zhou", "role": "Lab Assistant" }
       ]
     }
   ]
