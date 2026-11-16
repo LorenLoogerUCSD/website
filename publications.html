@@ -8,49 +8,16 @@
   <title>Publications · Looger Lab</title>
   <meta name="description" content="Publications from the Looger Lab at UC San Diego.">
   <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/site.js" defer></script>
 </head>
 <body>
-  <div class="draft-banner">Draft site under development. Feedback welcome via <a href="https://github.com/LorenLoogerUCSD/website/issues">GitHub Issues</a>.</div>
-
-  <header class="site-header">
-    <div class="container">
-      <a class="brand" href="index.html">Looger <span>Lab</span></a>
-      <nav class="site-nav" aria-label="Main">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="research.html">Research</a></li>
-          <li><a href="people.html">People</a></li>
-          <li><a href="publications.html" aria-current="page">Publications</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
   <main>
     <div class="container">
       <h1>Publications</h1>
       <p class="lead">Selected publications. For a complete list, see [Google Scholar / PubMed link].</p>
-
-      <h2>[Year]</h2>
-      <!-- Copy one <li> per paper. -->
-      <ul class="pub-list">
-        <li>
-          <div class="title"><a href="#">[Paper title]</a></div>
-          <div class="meta">[Authors]. <em>[Journal]</em> ([Year]). [DOI]</div>
-        </li>
-        <li>
-          <div class="title"><a href="#">[Paper title]</a></div>
-          <div class="meta">[Authors]. <em>[Journal]</em> ([Year]). [DOI]</div>
-        </li>
-      </ul>
+      <!-- Content comes from data/publications.json -->
+      <div id="publications"><p class="loading">Loading…</p></div>
     </div>
   </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      &copy; 2026 Looger Lab &middot; UC San Diego
-    </div>
-  </footer>
 </body>
 </html>

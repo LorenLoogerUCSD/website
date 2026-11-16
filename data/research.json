@@ -1,0 +1,27 @@
+{
+  "intro": "[Overview paragraph describing the lab's research program.]",
+  "areas": [
+    {
+      "title": "[Research area 1]",
+      "description": "[Short description of this area.]",
+      "image": ""
+    },
+    {
+      "title": "[Research area 2]",
+      "description": "[Short description of this area.]",
+      "image": ""
+    },
+    {
+      "title": "[Research area 3]",
+      "description": "[Short description of this area.]",
+      "image": ""
+    }
+  ],
+  "resources": [
+    {
+      "title": "[Resource, e.g. plasmids on Addgene]",
+      "url": "",
+      "description": "[What it is.]"
+    }
+  ]
+}

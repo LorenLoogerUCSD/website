@@ -1,0 +1,27 @@
+[
+  {
+    "title": "[Paper title]",
+    "authors": "[Author A, Author B, Looger LL]",
+    "journal": "[Journal]",
+    "year": 2026,
+    "doi": "",
+    "url": "",
+    "links": [
+      { "label": "PDF", "url": "#" }
+    ]
+  },
+  {
+    "title": "[Paper title]",
+    "authors": "[Author A, Author B, Looger LL]",
+    "journal": "[Journal]",
+    "year": 2025,
+    "doi": ""
+  },
+  {
+    "title": "[Paper title]",
+    "authors": "[Author A, Author B, Looger LL]",
+    "journal": "[Journal]",
+    "year": 2025,
+    "doi": ""
+  }
+]

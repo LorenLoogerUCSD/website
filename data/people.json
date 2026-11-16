@@ -1,0 +1,52 @@
+{
+  "groups": [
+    {
+      "title": "Principal Investigator",
+      "members": [
+        {
+          "name": "Loren Looger",
+          "role": "Principal Investigator",
+          "photo": "",
+          "bio": "[Short bio.]",
+          "email": "",
+          "links": [
+            { "label": "Google Scholar", "url": "#" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Lab members",
+      "members": [
+        {
+          "name": "[Name]",
+          "role": "[Role, e.g. Postdoctoral Fellow]",
+          "photo": "",
+          "bio": "[One-line research interest.]"
+        },
+        {
+          "name": "[Name]",
+          "role": "[Role, e.g. Graduate Student]",
+          "photo": "",
+          "bio": "[One-line research interest.]"
+        },
+        {
+          "name": "[Name]",
+          "role": "[Role, e.g. Research Associate]",
+          "photo": "",
+          "bio": "[One-line research interest.]"
+        }
+      ]
+    },
+    {
+      "title": "Alumni",
+      "members": [
+        {
+          "name": "[Name]",
+          "role": "[Former role, years]",
+          "now": "[Current position]"
+        }
+      ]
+    }
+  ]
+}

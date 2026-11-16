@@ -8,24 +8,10 @@
   <title>Looger Lab</title>
   <meta name="description" content="The Looger Lab at UC San Diego.">
   <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/site.js" defer></script>
 </head>
 <body>
-  <div class="draft-banner">Draft site under development. Feedback welcome via <a href="https://github.com/LorenLoogerUCSD/website/issues">GitHub Issues</a>.</div>
-
-  <header class="site-header">
-    <div class="container">
-      <a class="brand" href="index.html">Looger <span>Lab</span></a>
-      <nav class="site-nav" aria-label="Main">
-        <ul>
-          <li><a href="index.html" aria-current="page">Home</a></li>
-          <li><a href="research.html">Research</a></li>
-          <li><a href="people.html">People</a></li>
-          <li><a href="publications.html">Publications</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <!-- Header and footer are added by assets/js/site.js -->
 
   <section class="hero">
     <div class="container">
@@ -42,13 +28,11 @@
         <li><strong>[Month Year]</strong> — [News item, e.g. new paper, award, or new lab member.]</li>
         <li><strong>[Month Year]</strong> — [News item.]</li>
       </ul>
+
+      <h2>Life in the lab</h2>
+      <!-- Images come from data/gallery.json -->
+      <div id="gallery"></div>
     </div>
   </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      &copy; 2026 Looger Lab &middot; UC San Diego
-    </div>
-  </footer>
 </body>
 </html>
