@@ -1,17 +1,17 @@
 [
   {
-    "src": "assets/img/slides/calico-cat.jpg",
-    "alt": "A calico cat in Assisi, Italy",
-    "caption": "A calico cat in Assisi, Italy",
-    "credit": "Photo: Terragio67, CC BY-SA 4.0, via Wikimedia Commons",
-    "creditUrl": "https://commons.wikimedia.org/wiki/File:Calico_cat,_-_Assisi,_Italy.jpg"
-  },
-  {
     "src": "assets/img/slides/hummingbird.jpg",
     "alt": "Anna’s hummingbird",
     "caption": "Anna’s hummingbird",
     "credit": "Photo: Rhododendrites, CC BY-SA 4.0, via Wikimedia Commons",
     "creditUrl": "https://commons.wikimedia.org/wiki/File:Anna%27s_hummingbird_(41124).jpg"
+  },
+  {
+    "src": "assets/img/slides/calico-cat.jpg",
+    "alt": "A calico cat in Assisi, Italy",
+    "caption": "A calico cat in Assisi, Italy",
+    "credit": "Photo: Terragio67, CC BY-SA 4.0, via Wikimedia Commons",
+    "creditUrl": "https://commons.wikimedia.org/wiki/File:Calico_cat,_-_Assisi,_Italy.jpg"
   },
   {
     "src": "assets/img/slides/turtle.jpg",

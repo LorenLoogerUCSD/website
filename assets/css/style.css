@@ -320,16 +320,14 @@ h3 { font-size: 1.1rem; margin: 0 0 6px; }
 .nav-toggle-bar::after { top: 6px; left: 0; }
 
 /* Slideshow (home page) */
-.slideshow-wrap { background: #0b0f11; }
+.slideshow-section { margin-top: 28px; width: 100%; }
 .slideshow {
   position: relative;
-  max-width: 1400px;
-  margin: 0 auto;
   aspect-ratio: 21 / 9;
-  max-height: 560px;
   width: 100%;
   overflow: hidden;
-  background: #0b0f11;
+  border-radius: var(--radius);
+  background: var(--bg-alt);
 }
 .slide {
   position: absolute;
@@ -439,7 +437,8 @@ a.slide-credit:hover { color: #fff; }
   .intro h1 { font-size: 1.8rem; }
 }
 
-.slideshow-wrap + main { padding-top: 0; }
+.slideshow-section + main { padding-top: 0; }
+.slideshow-section + main .intro { padding-top: 36px; }
 
 /* Research overview cards and detail pages */
 .area-grid {
@@ -472,3 +471,55 @@ a.area-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 2p
 .area-figure figcaption a { color: var(--muted); }
 
 @media (max-width: 700px) { .area-grid { grid-template-columns: 1fr; } }
+
+/* People page: PI feature, filter tabs */
+.pi-feature {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  margin: 8px 0 40px;
+}
+.pi-photo {
+  width: 220px;
+  height: 220px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 25%;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+}
+.pi-text h2 { margin: 0 0 8px; font-size: 1.6rem; }
+.pi-text .role { color: var(--accent); font-weight: 600; line-height: 1.7; margin: 0 0 8px; }
+.pi-text .button { margin-top: 8px; }
+
+.people-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 28px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 8px;
+}
+.people-tab {
+  font: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  padding: 10px 0;
+  margin-bottom: -1px;
+  cursor: pointer;
+}
+.people-tab:hover { color: var(--text); }
+.people-tab.active { color: var(--text); border-bottom-color: var(--accent); }
+.people-tab:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.people-grid .card[hidden] { display: none; }
+.alumni-heading { margin-top: 48px; }
+
+@media (max-width: 600px) {
+  .pi-feature { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .pi-photo { width: 160px; height: 160px; }
+  .people-tabs { gap: 4px 18px; }
+}

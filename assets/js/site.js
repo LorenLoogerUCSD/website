@@ -190,17 +190,93 @@
     return out;
   }
 
+  function slugify(text) {
+    return String(text).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  }
+
+  function lastName(name) {
+    var parts = String(name).trim().split(/\s+/);
+    return parts[parts.length - 1].toLowerCase();
+  }
+
+  // PI shown large at the top, like a feature block.
+  function featuredPerson(p) {
+    var href = p.id ? "person.html?id=" + encodeURIComponent(p.id) : null;
+    return el("div", { class: "pi-feature" }, [
+      personPhoto(p, "pi-photo"),
+      el("div", { class: "pi-text" }, [
+        el("h2", { text: p.name }),
+        roleNode("p", p.role),
+        href ? el("a", { class: "button", href: href, text: "Profile" }) : null
+      ])
+    ]);
+  }
+
+  // People page: PI at the top; everyone else in one alphabetical grid with
+  // tabs (All / Staff / Postdocs / ...) built from the groups in people.json.
+  // A group marked "featured": true is shown as the PI block; "alumni": true
+  // is listed at the bottom.
   function renderPeople(target) {
     loadJSON("data/people.json").then(function (data) {
       target.textContent = "";
-      (data.groups || []).forEach(function (group) {
-        if (!group.members || !group.members.length) return;
-        target.appendChild(el("h2", { text: group.title }));
-        if (group.alumni) {
-          target.appendChild(el("ul", { class: "alumni-list" }, group.members.map(alumniItem)));
-        } else {
-          target.appendChild(el("div", { class: "grid people-grid" }, group.members.map(personCard)));
+      var groups = data.groups || [];
+
+      groups.filter(function (g) { return g.featured; }).forEach(function (g) {
+        (g.members || []).forEach(function (m) { target.appendChild(featuredPerson(m)); });
+      });
+
+      var categories = groups.filter(function (g) { return !g.featured && !g.alumni && (g.members || []).length; });
+      var everyone = [];
+      categories.forEach(function (g) {
+        (g.members || []).forEach(function (m) { everyone.push({ person: m, category: slugify(g.title) }); });
+      });
+      everyone.sort(function (a, b) {
+        return lastName(a.person.name).localeCompare(lastName(b.person.name)) ||
+          a.person.name.localeCompare(b.person.name);
+      });
+
+      var cards = everyone.map(function (x) {
+        var card = personCard(x.person);
+        card.setAttribute("data-category", x.category);
+        return card;
+      });
+      var grid = el("div", { class: "grid people-grid" }, cards);
+
+      var tabs = [{ key: "all", label: "All" }].concat(categories.map(function (g) {
+        return { key: slugify(g.title), label: g.title };
+      }));
+      var buttons = tabs.map(function (t) {
+        var b = el("button", { type: "button", class: "people-tab", "data-key": t.key, text: t.label });
+        b.addEventListener("click", function () { select(t.key, true); });
+        return b;
+      });
+      var bar = el("div", { class: "people-tabs", role: "toolbar", "aria-label": "Filter people" }, buttons);
+
+      function select(key, updateUrl) {
+        if (!tabs.some(function (t) { return t.key === key; })) key = "all";
+        buttons.forEach(function (b) {
+          var on = b.getAttribute("data-key") === key;
+          b.classList.toggle("active", on);
+          b.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+        cards.forEach(function (c) {
+          c.hidden = !(key === "all" || c.getAttribute("data-category") === key);
+        });
+        if (updateUrl && window.history && history.replaceState) {
+          history.replaceState(null, "", key === "all" ? window.location.pathname : "#" + key);
         }
+      }
+
+      if (cards.length) {
+        target.appendChild(bar);
+        target.appendChild(grid);
+        select(window.location.hash.replace("#", "") || "all", false);
+      }
+
+      groups.filter(function (g) { return g.alumni && (g.members || []).length; }).forEach(function (g) {
+        target.appendChild(el("h2", { class: "alumni-heading", text: g.title }));
+        var alumni = g.members.slice().sort(function (a, b) { return lastName(a.name).localeCompare(lastName(b.name)); });
+        target.appendChild(el("ul", { class: "alumni-list" }, alumni.map(alumniItem)));
       });
     }).catch(function (err) { showError(target, err); });
   }

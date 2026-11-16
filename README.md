@@ -20,8 +20,13 @@ between items, and no comma after the last item. If a section shows
 "Could not load this section", the JSON file usually has a typo.
 
 **People** (`data/people.json`): members are grouped (PI, Staff, Postdocs, PhD
-Students, Alumni). The People page shows a compact card (photo, name, role) for
-each current member; clicking it opens their profile at `person.html?id=<id>`.
+Students, Alumni). The group marked `"featured": true` (the PI) is shown large
+at the top. Everyone else appears in one grid, sorted by last name, with tabs
+(All, Staff, Postdocs, PhD Students) made from the group titles. A tab can be
+linked directly, e.g. `people.html#postdocs`. Each card (photo, name, role)
+opens that person's profile at `person.html?id=<id>`. A role with several parts
+is written with dots, e.g. `"PhD Student · Neurosciences Graduate Program"`.
+Cards show each part on its own line, and profiles keep it on one line.
 Each current member has `id` (lowercase-with-dashes, must be unique), `name`,
 `role`, `photo`, `bio` (a list of paragraphs), and optionally `email`, `links`
 (a list of `{ "label": ..., "url": ... }`) and `publications`
