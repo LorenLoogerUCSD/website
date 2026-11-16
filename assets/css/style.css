@@ -244,6 +244,18 @@ h3 { font-size: 1.1rem; margin: 0 0 6px; }
 .pub-list .authors strong { color: var(--text); font-weight: 700; }
 .pub-list .pub-title { font-weight: 400; }
 .pub-list .links { font-size: 14px; margin-top: 4px; }
+.pub-list .tag {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 0 7px;
+  font-size: 12px;
+  line-height: 18px;
+  border-radius: 9px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  vertical-align: 1px;
+}
+.pub-count { color: var(--muted); font-size: 14px; margin: 8px 0 0; }
 .pub-list .footnote { font-size: 13px; color: var(--muted); margin-top: 2px; }
 .show-authors {
   font: inherit;

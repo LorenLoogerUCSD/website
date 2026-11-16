@@ -65,6 +65,20 @@ in the same style everywhere:
 - On the Publications page, papers are sorted and grouped by year automatically,
   and there is a filter box.
 
+**Refreshing the full publication list from PubMed:**
+
+```bash
+python3 scripts/update_publications.py
+```
+
+This rebuilds `data/publications.json` from every PubMed record for
+`Looger L[au]`, including full author lists and equal-contribution marks read
+from PubMed Central full texts. Errata and preprints that have since been
+published are left out. Your manual edits survive a refresh: `links`, `notes`
+and `hidden` are kept, and an entry with `"locked": true` is not touched at all.
+Hand-added entries without a PMID are kept too. To hide a paper, add
+`"hidden": true` to it.
+
 **Research** (`data/research.json`): `intro` text, a list of `areas`
 (`title`, `description`, optional `image`), and optional `resources`.
 

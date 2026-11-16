@@ -340,7 +340,9 @@
       " ",
       el("em", { text: pub.journal }),
       source.join(""),
-      " (" + pub.year + ")."
+      " (" + pub.year + ").",
+      pub.preprint ? el("span", { class: "tag", text: "Preprint" }) : null,
+      pub.review ? el("span", { class: "tag", text: "Review" }) : null
     ]);
 
     var links = [];
@@ -369,7 +371,12 @@
       loadJSON("data/publications.json"),
       loadJSON("data/people.json").catch(function () { return { groups: [] }; })
     ]).then(function (results) {
-      var pubs = results[0].slice().sort(function (a, b) { return b.year - a.year; });
+      // Keep the file's order within a year (newest first); hide entries marked "hidden".
+      var pubs = results[0]
+        .map(function (p, i) { return { p: p, i: i }; })
+        .filter(function (x) { return !x.p.hidden; })
+        .sort(function (a, b) { return (b.p.year - a.p.year) || (a.i - b.i); })
+        .map(function (x) { return x.p; });
 
       // Bold every current lab member on the main Publications page.
       var labNames = [];
@@ -394,6 +401,9 @@
         });
 
         results.textContent = "";
+        results.appendChild(el("p", { class: "pub-count", text: q
+          ? shown.length + " of " + pubs.length + " publications"
+          : pubs.length + " publications" }));
         if (!shown.length) {
           results.appendChild(el("p", { class: "placeholder", text: "No publications match “" + search.value + "”." }));
           return;
