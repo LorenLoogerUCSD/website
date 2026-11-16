@@ -88,6 +88,18 @@ python3 -m http.server 8000
 
 Then open http://localhost:8000
 
+## Cache-busting (one-time setup per computer)
+
+Pages link to `site.js?v=…` and `style.css?v=…`. A git hook updates the `v=` tag
+automatically whenever one of those files is committed, so browsers load the
+new version at once instead of a cached copy. After cloning, enable it once:
+
+```bash
+git config core.hooksPath .githooks
+```
+
+The data files in `data/` are always fetched fresh and don't need this.
+
 ## Feedback
 
 Lab members: please leave comments as [GitHub Issues](https://github.com/LorenLoogerUCSD/website/issues).

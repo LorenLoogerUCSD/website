@@ -1,0 +1,33 @@
+#!/bin/sh
+#
+# Cache-busting: when assets/js/site.js or assets/css/style.css is part of a
+# commit, stamp every page's link to it with a version tag derived from the
+# file's contents, e.g. assets/js/site.js?v=3f9a1c2e. Browsers then fetch the
+# new file immediately instead of using a cached copy.
+#
+# Enable once per clone with:   git config core.hooksPath .githooks
+
+set -e
+
+stamp() {
+  asset="$1"
+  # Only act when this file is staged in the commit.
+  git diff --cached --name-only -- "$asset" | grep -q . || return 0
+
+  # Version = short hash of the staged contents of the file.
+  version=$(git show ":$asset" | git hash-object --stdin | cut -c1-8)
+
+  for page in *.html; do
+    [ -f "$page" ] || continue
+    before=$(git hash-object "$page")
+    ASSET="$asset" VERSION="$version" perl -pi -e \
+      's/\Q$ENV{ASSET}\E(\?v=[0-9a-f]*)?"/$ENV{ASSET}?v=$ENV{VERSION}"/g' "$page"
+    if [ "$(git hash-object "$page")" != "$before" ]; then
+      git add "$page"
+      echo "cache-busting: $page -> $asset?v=$version"
+    fi
+  done
+}
+
+stamp assets/js/site.js
+stamp assets/css/style.css
