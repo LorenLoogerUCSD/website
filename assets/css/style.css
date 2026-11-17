@@ -556,6 +556,7 @@ a.area-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 2p
 .map-link { margin: 8px 0 0; font-size: 14px; }
 .contact-details h2 { margin: 0 0 12px; }
 .contact-details dl { margin: 0; }
+.contact-details dt:first-child { margin-top: 0; }
 .contact-details dt {
   font-size: 13px;
   font-weight: 600;

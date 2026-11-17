@@ -199,12 +199,9 @@
   }
 
   // PI shown large at the top, like a feature block.
-  // Office and phone, e.g. "Office: CNCB 106 · Phone: 858-555-0100".
+  // Office, e.g. "Office: CNCB 106".
   function contactInfo(p) {
-    var parts = [];
-    if (p.office) parts.push("Office: " + p.office);
-    if (p.phone) parts.push("Phone: " + p.phone);
-    return parts.length ? el("p", { class: "contact-info", text: parts.join(" \u00b7 ") }) : null;
+    return p.office ? el("p", { class: "contact-info", text: "Office: " + p.office }) : null;
   }
 
   function featuredPerson(p) {

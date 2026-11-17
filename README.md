@@ -29,7 +29,7 @@ is written with dots, e.g. `"PhD Student · Neurosciences Graduate Program"`.
 Cards show each part on its own line, and profiles keep it on one line.
 Each current member has `id` (lowercase-with-dashes, must be unique), `name`,
 `role`, `photo`, `bio` (a list of paragraphs), and optionally `email`, `links`
-(a list of `{ "label": ..., "url": ... }`), `office` (e.g. `"CNCB 106"`), `phone`,
+(a list of `{ "label": ..., "url": ... }`), `office` (e.g. `"CNCB 106"`),
 and `publications`
 (a list of `{ "text": ..., "url": ... }`).
 The Alumni group (`"alumni": true`) is a simple list: `name`, `role`, and
