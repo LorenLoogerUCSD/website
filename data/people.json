@@ -9,6 +9,8 @@
           "name": "Loren Looger",
           "role": "Principal Investigator · HHMI Investigator · Professor of Neurosciences",
           "photo": "assets/img/people/loren-looger.jpg",
+          "office": "CNCB 103",
+          "email": "llooger [at] health.ucsd.edu",
           "bio": [
             "Loren received his BS in Chemistry and his MS in Mathematics from Stanford University in 1996 and went on to receive his PhD in Biochemistry from Duke University in 2003. From 2006-2018, he worked as a Group Leader for Howard Hughes Medical Institute (HHMI) at Janelia Research Campus in Ashburn, VA. He continued as a Senior Group Leader from 2018-2021, before he relocated to the University of California, San Diego (UCSD) as an Investigator for HHMI and Professor of Neurosciences at UCSD.",
             "In his lab he uses protein engineering to create tools for studying and manipulating the brain and other biological samples. Looger’s team combines computational and evolutionary methods to create new reagents for use in characterizing and manipulating the assembly and function of neural circuits. The team designs and tests these reagents – and other tools – in collaboration with other scientists. Their projects include creating sensors for calcium, neurotransmitters, and neuromodulators; optogenetic effectors; engineered viral capsids; probes for EM and immunolabeling; and recently, designed proteins and pathways for carbon capture and other environmental remediation. Ultimately, his goal is to enable better science in diverse fields and across the globe through collaboration and innovation."
@@ -38,6 +40,8 @@
           "name": "Ryan Rowe",
           "role": "Lab Manager",
           "photo": "assets/img/people/ryan-rowe.jpg",
+          "office": "CNCB 115",
+          "email": "rsrowe [at] health.ucsd.edu",
           "bio": [
             "Ryan received his Bachelor’s degree, and Master’s degree, in Microbiology from San Diego State University. As an undergraduate, he studied microbial and bacteriophage interactions and ecology in coral reef ecosystems, and how pollution can affect those interactions. His work on biofilms and their influence on coral larval settlement helped inform current projects aimed at restoring degraded coral reefs. As a graduate student, his studies focused on developing genetic tools to study bacteriophage-host interactions to design effective novel bacteriophage therapies. These studies contributed to two successful therapies and continue to be used today. Ryan joined Looger Lab in June 2024 as a Research Technician."
           ],
@@ -85,6 +89,7 @@
           "name": "Jacqueline Morris",
           "role": "Bioinformatics Specialist",
           "photo": "assets/img/people/jacqueline-morris.jpg",
+          "email": "jfmorris [at] health.ucsd.edu",
           "bio": [
             "Dr. Jacqueline Morris received her Ph.D. in pharmacology from the University of Pennsylvania where she also performed her postdoctoral research. Dr. Morris is currently a Senior Research Associate in the Department of Neuroscience at the University of California, San Diego under Dr. Loren Looger. She currently focuses on development and implementation of genomics pipelines for various projects including generating an improved genome assembly and annotation of Trachemys scripta elegans, or the red eared slider turtle, in order to better understand how temperature regulates sex determination in this species; generating genome assemblies and annotations for various fungal species to identify underlying genomic variation associated with climate change driven thermotolerance; bacterial genome assembly and annotation of various species for the purposes of protein based sensor generation and to understand the role of the LoaP transcription antiterminator in the regulation of antimicrobial producing operons."
           ],
@@ -159,6 +164,8 @@
           "name": "Neha Malhotra",
           "role": "Assistant Project Scientist",
           "photo": "assets/img/people/neha-malhotra.jpg",
+          "office": "CNCB 132",
+          "email": "nemalhotra [at] health.ucsd.edu",
           "bio": [
             "Dr. Neha Malhotra received her Ph.D in Molecular Biology and Biochemistry from the CSIR-Institute of Microbial Technology, India in the year 2017, where she studied Eukaryotic-type Ser/Thr Kinase mediated phosphorylation of cyclic-AMP regulating enzymes in Mycobacterium tuberculosis. Dr. Malhotra then joined the National Institutes of Health in 2018 for her Post-doctoral research with Dr. Clifton Earl Barry 3rd to identify cryptic natural products derived from environmental fungi having antibiotic potential against M. tuberculosis. During her post-doctoral work, she identified some interesting fungus derived natural products specifically produced upon co-cultivation mediated elicitation of cryptic/silent biosynthetic gene clusters having anti-tuberculosis activity.",
             "Dr. Malhotra then joined Prof. Loren Looger at the University of California, San Diego in 2024 as an Asst. Project Scientist to continue her research interest on identifying the novel microbial biosynthetic gene clusters responsible for producing metabolites having antibiotic potential. Microorganisms like bacteria and fungi possess tremendous ability to produce bioactive metabolites. However, there is still an immense potential that remains unexplored as the BGC remains silent/cryptic under normal laboratory conditions. Her research thus focusses on identifying different ways to activate these silent BGCs by employing genetic free and genetics-based methods. This work would help her to identify potential antibiotic candidates as well as to understand the mechanism of BGC activation."
@@ -237,6 +244,8 @@
           "name": "Kallol Bera",
           "role": "Staff Research Scientist",
           "photo": "assets/img/people/kallol-bera.jpg",
+          "office": "CNCB 131",
+          "email": "kbera [at] health.ucsd.edu",
           "bio": [
             "Kallol received his B. Sc. and M. Sc. in chemistry from University of Calcutta, India. He received his Ph.D. in organic chemistry from the Saha Institute of Nuclear Physics (SINP), India in 2016. During his training with Prof. Sudipta Maiti's group at the Tata Institute of Fundamental Research (TIFR), India, he developed a method for quantifying and visualizing some of the key neurotransmitters including serotonin and dopamine.",
             "Kallol joined the Lester lab, Caltech as a postdoctoral fellow in October 2017. His work in the Lester lab focused on unraveling the mechanisms underlying the rapid antidepressant effects of the drug ketamine. He developed a family of genetically encoded biosensors that can dynamically reveal the presence of ketamine and its metabolites at the sub-cellular level.",
@@ -259,6 +268,8 @@
           "name": "Joseph Benetatos",
           "role": "Postdoctoral Scholar",
           "photo": "assets/img/people/joseph-benetatos.jpg",
+          "office": "CNCB 132",
+          "email": "jbenetatos [at] health.ucsd.edu",
           "bio": [
             "Dr. Joseph Benetatos received his Ph.D in Neurobiology from The University of Queensland in Brisbane, Australia in 2020. Joey then joined the lab of Prof. Ernest Fraenkel in the Dept. of Biological Engineering at MIT from 2020-2022, working alongside computational biologists to integrate multi-omics into biological discovery. In 2022 Joey joined the Looger lab at UCSD to study psychedelic drugs. Joey’s research asks the question, “can psychedelic drugs covalently modify proteins?”"
           ],
@@ -306,6 +317,8 @@
           "name": "Ryo Tamura",
           "role": "Postdoctoral Scholar",
           "photo": "assets/img/people/ryo-tamura.jpg",
+          "office": "CNCB 132",
+          "email": "rytamura [at] health.ucsd.edu",
           "bio": [
             "Dr. Ryo Tamura received his B.S. and M.S in Pharmaceutical Sciences from the University of Tokyo and Ph.D. in Cellular Biology from the University of Georgia. He is currently a postdoctoral scholar in the Department of Neurosciences at UCSD. His main interest is in developing genetic tools and molecular probes to address biological and pathological mechanisms of diseases by integrating computational modeling and biochemical methods."
           ],
@@ -376,6 +389,8 @@
           "name": "Aalok Varma",
           "role": "Postdoctoral Scholar",
           "photo": "assets/img/people/aalok-varma.jpg",
+          "office": "CNCB 131",
+          "email": "varmaa [at] health.ucsd.edu",
           "bio": [
             "Dr. Aalok Varma obtained his bachelor’s degree in biotechnology from Manipal University, Manipal, India and received his PhD from the National Centre for Biological Sciences (NCBS-TIFR), Bangalore, India. For his graduate research, he explored what bistability in individual Purkinje neurons means for the ensemble of neurons in the cerebellum, using larval zebrafish as the model system. As a post-doctoral fellow in the Looger lab, he is broadly interested in understanding how life is impacted by and adapting to climate change. For this, he is working on different experimental systems spanning the domains of life (fungi and animals). Besides academic research, Dr. Varma tries to advocate for systemic change in academia to make it more transparent and equitable. He was a member of eLife’s Early Career Advisory Group (ECAG) from 2021-23.",
             "In his free time, he enjoys reading fiction, swimming, playing tennis and watching a lot of TV shows."
@@ -454,6 +469,8 @@
           "name": "Peter Fenton",
           "role": "PhD Student · Neurosciences Graduate Program",
           "photo": "assets/img/people/peter-fenton.jpg",
+          "office": "CNCB 115",
+          "email": "pfenton [at] health.ucsd.edu",
           "bio": [
             "Peter received his bachelor’s degree in philosophy from the University of California, Santa Cruz in 2007. Over the next decade, Peter pursued his philosophical and scientific interests which eventually led him to the lab of Dr. Eiman Abdel-azim at the Salk Institute for Biological Studies in 2017. Peter was acquainted with Neuroscience in the context of studying spinal cord circuits that governed complex, reaching behaviors in mice.",
             "Now a Looger Lab graduate student in the Neurosciences Graduate Program at UCSD, he is exploring the potential anti-inflammatory properties of psilocybin (the active, psychedelic compound in ‘magic mushrooms’). Working with mice, Peter hopes to identify and characterize the system(s) responsible for the anti-inflammatory action of psilocybin, with particular focus in the central nervous system. Outside of this project, he is broadly interested in the biological basis of neuropsychiatric and autoimmune conditions and glial biology."
@@ -478,6 +495,8 @@
           "name": "Sara Zimmerman",
           "role": "PhD Student · Neurosciences Graduate Program",
           "photo": "assets/img/people/sara-zimmerman.jpg",
+          "office": "CNCB 132",
+          "email": "s2zimmerman [at] health.ucsd.edu",
           "bio": [
             "Sara received her bachelor’s degrees in chemistry and biology from Duke University in 2020, then completed an NIH postbaccalaureate fellowship in the clinical pharmacology program at the National Cancer Institute. Sara entered the Neuroscience Graduate Program at UCSD in the fall of 2022 and joined the Looger Lab in the fall of 2023. She is studying the cellular and circuit mechanisms of psychedelic-induced plasticity using larval zebrafish as a model system. Through whole-brain calcium imaging and behavioral analysis, she hopes to better understand how acute psychedelic administration can lead to lasting behavioral change. Outside of lab, she loves all things outdoors, especially hiking, biking, and learning to garden."
           ]
