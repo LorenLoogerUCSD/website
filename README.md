@@ -28,8 +28,9 @@ opens that person's profile at `person.html?id=<id>`. A role with several parts
 is written with dots, e.g. `"PhD Student · Neurosciences Graduate Program"`.
 Cards show each part on its own line, and profiles keep it on one line.
 Each current member has `id` (lowercase-with-dashes, must be unique), `name`,
-`role`, `photo`, `bio` (a list of paragraphs), and optionally `email`, `links`
-(a list of `{ "label": ..., "url": ... }`), `office` (e.g. `"CNCB 106"`),
+`role`, `photo`, `bio` (a list of paragraphs), and optionally `email`
+(written as `"name [at] health.ucsd.edu"`, see below), `links`
+(a list of `{ "label": ..., "url": ... }`), `office` (shown as written, e.g. `"CNCB 102B"`),
 and `publications`
 (a list of `{ "text": ..., "url": ... }`).
 The Alumni group (`"alumni": true`) is a simple list: `name`, `role`, and
@@ -114,6 +115,18 @@ The home-page introduction and news, and the Contact page, are plain HTML in
 their pages. The Contact page map is a Google Maps embed pinned on the Center
 for Neural Circuits & Behavior (32.875568, -117.238282). The pin is set in the
 `src` of the `<iframe>` in `contact.html`.
+
+## Email addresses
+
+To keep addresses away from simple spam scrapers, never write a plain
+`name@domain` anywhere in the site files. Write `name [at] domain` instead. The
+real address is put together by the browser when the page is shown.
+
+- In `data/people.json`: `"email": "nbozhanova [at] health.ucsd.edu"`
+- In an HTML page: `<a data-email="name [at] health.ucsd.edu">name [at] health.ucsd.edu</a>`
+
+This stops the common scrapers that read the page source. It can't stop a
+determined bot that runs a full browser.
 
 ## Preview locally
 

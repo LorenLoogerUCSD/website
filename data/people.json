@@ -60,7 +60,7 @@
           "name": "Courtney Millican",
           "role": "Administrative Assistant",
           "photo": "assets/img/people/courtney-millican.jpg",
-          "email": "comillican@health.ucsd.edu",
+          "email": "comillican [at] health.ucsd.edu",
           "bio": [
             "Courtney was born and raised in San Diego. She studied Nutrition and Kinesiology at San Diego Mesa College and received her BS in Public Health from San Diego State University. Most of her administrative background comes from the automotive industry. She spent some time working in a wet lab at Labcorp as a clinical laboratory accessioner. She went on to work in the manufacturing department at Thermo Fisher Scientific. She joined Looger Lab in February of 2022, where she provides administrative support."
           ]
@@ -70,7 +70,15 @@
           "name": "Nina Bozhanova",
           "role": "Bioinformatics Specialist",
           "photo": "assets/img/people/nina-bozhanova.jpg",
-          "bio": []
+          "bio": [],
+          "email": "nbozhanova [at] health.ucsd.edu",
+          "office": "CNCB 102B",
+          "links": [
+            {
+              "label": "Google Scholar",
+              "url": "https://scholar.google.com/citations?user=Y8KTHhQAAAAJ"
+            }
+          ]
         },
         {
           "id": "jacqueline-morris",

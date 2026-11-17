@@ -199,9 +199,30 @@
   }
 
   // PI shown large at the top, like a feature block.
-  // Office, e.g. "Office: CNCB 106".
+  // Email addresses are stored as "name [at] domain" in the data files and in
+  // the HTML, so simple scrapers reading the source don't find them. The real
+  // address is only put together here, in the visitor's browser.
+  function decodeEmail(text) {
+    return String(text || "").replace(/\s*\[at\]\s*/i, "@").replace(/\s*\[dot\]\s*/gi, ".").trim();
+  }
+
+  function emailLink(text) {
+    var address = decodeEmail(text);
+    return el("a", { href: "mailto:" + address, text: address });
+  }
+
+  // Turn <a data-email="name [at] domain"></a> in a page into a working link.
+  function renderEmails() {
+    Array.prototype.forEach.call(document.querySelectorAll("[data-email]"), function (a) {
+      var address = decodeEmail(a.getAttribute("data-email"));
+      a.setAttribute("href", "mailto:" + address);
+      a.textContent = address;
+    });
+  }
+
+  // Office, shown exactly as written in the data, e.g. "CNCB 102B".
   function contactInfo(p) {
-    return p.office ? el("p", { class: "contact-info", text: "Office: " + p.office }) : null;
+    return p.office ? el("p", { class: "contact-info", text: p.office }) : null;
   }
 
   function featuredPerson(p) {
@@ -311,7 +332,7 @@
       document.title = person.name + " · Looger Lab";
 
       var links = (person.links || []).map(function (l) { return el("a", { href: l.url, text: l.label }); });
-      if (person.email) links.unshift(el("a", { href: "mailto:" + person.email, text: person.email }));
+      if (person.email) links.unshift(emailLink(person.email));
 
       var header = el("div", { class: "profile-header" }, [
         personPhoto(person, "profile-photo"),
@@ -713,6 +734,7 @@
   function init() {
     renderHeader();
     renderFooter();
+    renderEmails();
     Object.keys(renderers).forEach(function (id) {
       var target = document.getElementById(id);
       if (target) renderers[id](target);
