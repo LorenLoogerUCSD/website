@@ -4,3 +4,7 @@ scripts/__pycache__/
 
 # Source floor plan (internal space-allocation sheet; do not publish)
 assets/img/contact/*.pdf
+assets/img/contact/east.jpg
+assets/img/contact/south_1.jpg
+assets/img/contact/south_2.jpg
+.claude/contact-preview.png
