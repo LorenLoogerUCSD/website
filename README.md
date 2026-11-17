@@ -29,7 +29,8 @@ is written with dots, e.g. `"PhD Student · Neurosciences Graduate Program"`.
 Cards show each part on its own line, and profiles keep it on one line.
 Each current member has `id` (lowercase-with-dashes, must be unique), `name`,
 `role`, `photo`, `bio` (a list of paragraphs), and optionally `email`, `links`
-(a list of `{ "label": ..., "url": ... }`) and `publications`
+(a list of `{ "label": ..., "url": ... }`), `office` (e.g. `"CNCB 106"`), `phone`,
+and `publications`
 (a list of `{ "text": ..., "url": ... }`).
 The Alumni group (`"alumni": true`) is a simple list: `name`, `role`, and
 optionally `years` and `now` (current position). Empty groups are hidden.
@@ -110,7 +111,9 @@ credit line, so keep `credit` while they're used.
 `assets/js/site.js`.
 
 The home-page introduction and news, and the Contact page, are plain HTML in
-their pages.
+their pages. The Contact page map is a Google Maps embed pinned on the Center
+for Neural Circuits & Behavior (32.875568, -117.238282). The pin is set in the
+`src` of the `<iframe>` in `contact.html`.
 
 ## Preview locally
 

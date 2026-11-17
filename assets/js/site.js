@@ -199,6 +199,14 @@
   }
 
   // PI shown large at the top, like a feature block.
+  // Office and phone, e.g. "Office: CNCB 106 · Phone: 858-555-0100".
+  function contactInfo(p) {
+    var parts = [];
+    if (p.office) parts.push("Office: " + p.office);
+    if (p.phone) parts.push("Phone: " + p.phone);
+    return parts.length ? el("p", { class: "contact-info", text: parts.join(" \u00b7 ") }) : null;
+  }
+
   function featuredPerson(p) {
     var href = p.id ? "person.html?id=" + encodeURIComponent(p.id) : null;
     return el("div", { class: "pi-feature" }, [
@@ -313,6 +321,7 @@
         el("div", null, [
           el("h1", { text: person.name }),
           roleNode("p", person.role, " · "),
+          contactInfo(person),
           links.length ? el("p", { class: "links" }, joinWith(links, " · ")) : null
         ])
       ]);
