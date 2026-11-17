@@ -220,9 +220,12 @@
     });
   }
 
-  // Office, shown exactly as written in the data, e.g. "CNCB 102B".
+  // Contact line: office (as written, e.g. "CNCB 102B") and email.
   function contactInfo(p) {
-    return p.office ? el("p", { class: "contact-info", text: p.office }) : null;
+    var parts = [];
+    if (p.office) parts.push(p.office);
+    if (p.email) parts.push(emailLink(p.email));
+    return parts.length ? el("p", { class: "contact-info" }, joinWith(parts, " \u00b7 ")) : null;
   }
 
   function featuredPerson(p) {
@@ -332,7 +335,6 @@
       document.title = person.name + " · Looger Lab";
 
       var links = (person.links || []).map(function (l) { return el("a", { href: l.url, text: l.label }); });
-      if (person.email) links.unshift(emailLink(person.email));
 
       var header = el("div", { class: "profile-header" }, [
         personPhoto(person, "profile-photo"),
