@@ -576,10 +576,13 @@ a.area-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 2p
 .find-us { margin-top: 48px; }
 .find-us-figures {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
-  gap: 24px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 20px;
+  max-width: 760px;
   margin-top: 16px;
 }
+.find-us-figures img,
+.find-us-figures .figure-placeholder { aspect-ratio: 1800 / 1493; object-fit: contain; }
 .find-us-figures figure { margin: 0; }
 .find-us-figures img {
   display: block;
@@ -602,8 +605,9 @@ a.area-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 2p
   color: var(--muted);
   font-size: 14px;
 }
-@media (max-width: 760px) {
-  .find-us-figures { grid-template-columns: 1fr; }
+@media (max-width: 560px) {
+  .find-us-figures { gap: 10px; }
+  .find-us-figures figcaption { font-size: 12px; }
 }
 .plan-legend { display: inline-flex; flex-wrap: wrap; gap: 4px 14px; margin-left: 12px; }
 .plan-legend span { display: inline-flex; align-items: center; gap: 6px; }
