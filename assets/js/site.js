@@ -230,12 +230,12 @@
 
   function featuredPerson(p) {
     var href = p.id ? "person.html?id=" + encodeURIComponent(p.id) : null;
-    return el("div", { class: "pi-feature" }, [
+    // Landscape card, styled like the other people cards; the whole card is the link.
+    return el(href ? "a" : "div", { class: "card pi-feature" + (href ? " person-link" : ""), href: href }, [
       personPhoto(p, "pi-photo"),
       el("div", { class: "pi-text" }, [
         el("h2", { text: p.name }),
-        roleNode("p", p.role),
-        href ? el("a", { class: "button", href: href, text: "Profile" }) : null
+        roleNode("p", p.role)
       ])
     ]);
   }
