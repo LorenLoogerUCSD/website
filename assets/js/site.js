@@ -463,12 +463,12 @@
       ". ",
       el("span", { class: "pub-title", text: pub.title.replace(/\.$/, "") + "." }),
       " ",
-      el("em", { text: pub.journal }),
+      el("em", { class: "journal", text: pub.journal }),
       source.join(""),
       " (" + pub.year + ").",
-      pub.preprint ? el("span", { class: "tag", text: "Preprint" }) : null,
-      pub.review ? el("span", { class: "tag", text: "Review" }) : null
-    ]);
+    ].concat(pubTags(pub).map(function (t) {
+      return el("span", { class: "tag tag-" + t.key, text: t.label });
+    })));
 
     var links = [];
     if (pub.doi) links.push(el("a", { href: "https://doi.org/" + pub.doi, text: "doi:" + pub.doi }));
@@ -489,6 +489,26 @@
       ref,
       links.length ? el("div", { class: "links" }, joinWith(links, " · ")) : null
     ].concat(notes));
+  }
+
+  // Publication tags, used as filter chips and shown on each entry.
+  // Demo set: assigned automatically. A paper can also list them explicitly,
+  // e.g. "tags": ["gcamp", "sensor"], which overrides the automatic rule.
+  var PUB_TAGS = [
+    { key: "preprint", label: "Preprint", test: function (p) { return !!p.preprint; } },
+    { key: "review", label: "Review", test: function (p) { return !!p.review; } },
+    { key: "gcamp", label: "GCaMP", test: function (p) { return /gcamp/i.test(p.title); } },
+    { key: "sensor", label: "Sensor", test: function (p) {
+      return /sensor|indicator|snfr|reporter/i.test(p.title);
+    } }
+  ];
+
+  function pubTags(p) {
+    return PUB_TAGS.filter(function (t) {
+      if (Array.isArray(p.tags)) return p.tags.indexOf(t.key) !== -1 ||
+        (t.key === "preprint" && p.preprint) || (t.key === "review" && p.review);
+      return t.test(p);
+    });
   }
 
   function renderPublications(target) {
@@ -513,24 +533,51 @@
       var search = el("input", {
         type: "search",
         class: "pub-search",
-        placeholder: "Filter by title, author, journal or year…",
-        "aria-label": "Filter publications"
+        placeholder: "Search title, author or journal\u2026",
+        "aria-label": "Search publications"
       });
+
+      var years = [];
+      pubs.forEach(function (p) { if (years.indexOf(p.year) === -1) years.push(p.year); });
+      var yearSelect = el("select", { class: "pub-select", "aria-label": "Filter by year" },
+        [el("option", { value: "", text: "All years" })].concat(years.map(function (y) {
+          return el("option", { value: String(y), text: String(y) });
+        })));
+
+      var active = [];
+      var chips = PUB_TAGS.map(function (t) {
+        var b = el("button", { type: "button", class: "pub-chip tag-" + t.key, "aria-pressed": "false", text: t.label });
+        b.addEventListener("click", function () {
+          var i = active.indexOf(t.key);
+          if (i === -1) active.push(t.key); else active.splice(i, 1);
+          b.setAttribute("aria-pressed", i === -1 ? "true" : "false");
+          draw();
+        });
+        return b;
+      });
+
+      var controls = el("div", { class: "pub-controls" }, [
+        el("div", { class: "pub-controls-row" }, [search, yearSelect]),
+        el("div", { class: "pub-chips", role: "group", "aria-label": "Filter by tag" }, chips)
+      ]);
       var results = el("div");
 
       function draw() {
         var q = search.value.trim().toLowerCase();
+        var y = yearSelect.value;
         var shown = pubs.filter(function (p) {
+          if (y && String(p.year) !== y) return false;
+          if (active.length) {
+            var keys = pubTags(p).map(function (t) { return t.key; });
+            if (!active.every(function (k) { return keys.indexOf(k) !== -1; })) return false;
+          }
           if (!q) return true;
           return [p.title, authorList(p.authors).join(" "), p.journal, String(p.year)].join(" ").toLowerCase().indexOf(q) !== -1;
         });
 
         results.textContent = "";
-        results.appendChild(el("p", { class: "pub-count", text: q
-          ? shown.length + " of " + pubs.length + " publications"
-          : pubs.length + " publications" }));
         if (!shown.length) {
-          results.appendChild(el("p", { class: "placeholder", text: "No publications match “" + search.value + "”." }));
+          results.appendChild(el("p", { class: "placeholder", text: "No publications match these filters." }));
           return;
         }
 
@@ -539,7 +586,7 @@
         shown.forEach(function (p) {
           if (p.year !== year) {
             year = p.year;
-            results.appendChild(el("h2", { text: String(year) }));
+            results.appendChild(el("h2", { class: "pub-year", text: String(year) }));
             list = el("ul", { class: "pub-list" });
             results.appendChild(list);
           }
@@ -548,8 +595,9 @@
       }
 
       search.addEventListener("input", draw);
+      yearSelect.addEventListener("change", draw);
       target.textContent = "";
-      target.appendChild(search);
+      target.appendChild(controls);
       target.appendChild(results);
       draw();
     }).catch(function (err) { showError(target, err); });
