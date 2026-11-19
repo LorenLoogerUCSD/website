@@ -26,6 +26,7 @@
       { href: "research.html", label: "Research" },
       { href: "people.html", label: "People" },
       { href: "publications.html", label: "Publications" },
+      { href: "resources.html", label: "Resources" },
       { href: "contact.html", label: "Contact" }
     ]
   };
@@ -209,6 +210,17 @@
   function emailLink(text) {
     var address = decodeEmail(text);
     return el("a", { href: "mailto:" + address, text: address });
+  }
+
+  // Links inside a clickable card can't be real <a> tags; open them on click.
+  function renderInlineLinks() {
+    Array.prototype.forEach.call(document.querySelectorAll(".inline-link[data-href]"), function (s) {
+      s.setAttribute("role", "link");
+      s.setAttribute("tabindex", "0");
+      function go(e) { e.preventDefault(); e.stopPropagation(); window.location.href = s.getAttribute("data-href"); }
+      s.addEventListener("click", go);
+      s.addEventListener("keydown", function (e) { if (e.key === "Enter") go(e); });
+    });
   }
 
   // Turn <a data-email="name [at] domain"></a> in a page into a working link.
@@ -785,6 +797,7 @@
     renderHeader();
     renderFooter();
     renderEmails();
+    renderInlineLinks();
     Object.keys(renderers).forEach(function (id) {
       var target = document.getElementById(id);
       if (target) renderers[id](target);
