@@ -24,9 +24,9 @@
     nav: [
       { href: "index.html", label: "Home" },
       { href: "research.html", label: "Research" },
+      { href: "resources.html", label: "Resources" },
       { href: "people.html", label: "People" },
       { href: "publications.html", label: "Publications" },
-      { href: "resources.html", label: "Resources" },
       { href: "contact.html", label: "Contact" }
     ]
   };
